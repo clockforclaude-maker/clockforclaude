@@ -114,7 +114,7 @@ function setupInjections() {
   if (!editor) return;
 
   // Add right padding so text doesn't flow under our floating buttons
-  editor.style.paddingRight = '145px';
+  editor.style.setProperty('padding-right', '145px', 'important');
 
   // Check for auto-inject on empty focused inputs (handles SPA transitions where focus is retained)
   checkPolledAutoInject(editor);
@@ -325,7 +325,7 @@ async function updatePills(badgeContainer, editor) {
   
   if (!isPremium || !settings.enabled) {
     if (pillsWrapper) pillsWrapper.remove();
-    editor.style.paddingRight = '145px';
+    editor.style.setProperty('padding-right', '145px', 'important');
     return;
   }
 
@@ -360,7 +360,7 @@ async function updatePills(badgeContainer, editor) {
   });
 
   const estimatedWidth = 145 + (quickPrompts.length * 85);
-  editor.style.paddingRight = `${estimatedWidth}px`;
+  editor.style.setProperty('padding-right', `${estimatedWidth}px`, 'important');
 }
 
 function injectTextAtCursor(editor, text) {
