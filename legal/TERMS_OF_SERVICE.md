@@ -22,9 +22,9 @@ ClockForClaude fournit un injecteur de contexte local (heure, météo, calendrie
 
 ### 4. Résolution des Litiges et Médiation de la Consommation
 En cas de litige, vous devez d'abord contacter notre service client par e-mail. Si aucune solution amiable n'est trouvée, et conformément aux articles L.612-1 et suivants du Code de la consommation, vous pouvez recourir gratuitement au médiateur de la consommation agréé auquel nous adhérons :
-*   **Médiateur désigné** : Société Médiation Professionnelle (SMP)
+*   **Médiateur désigné** : Société de la Médiation Professionnelle (SMP)
 *   **Site internet** : https://www.mediateur-consommation-smp.fr/
-*   **Adresse postale** : Société Médiation Professionnelle, 24 rue Albert de Mun, 33000 Bordeaux, France.
+*   **Adresse postale** : Société de la Médiation Professionnelle - Alteritae - 5 rue Salvaing - 12000 Rodez, France.
 
 ---
 
@@ -46,6 +46,6 @@ ClockForClaude provides a local context injector (time, weather, calendar) desig
 
 ### 4. Dispute Resolution & Consumer Mediation
 In the event of a dispute, you must first contact our customer support via email. If no amicable resolution is reached, and in accordance with French consumer laws, EU consumers may refer the dispute to the following approved consumer mediator:
-*   **Designated Mediator**: Société Médiation Professionnelle (SMP)
+*   **Designated Mediator**: Société de la Médiation Professionnelle (SMP)
 *   **Website**: https://www.mediateur-consommation-smp.fr/
-*   **Postal Address**: Société Médiation Professionnelle, 24 rue Albert de Mun, 33000 Bordeaux, France.
+*   **Postal Address**: Société de la Médiation Professionnelle - Alteritae - 5 rue Salvaing - 12000 Rodez, France.
