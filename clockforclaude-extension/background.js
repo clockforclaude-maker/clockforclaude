@@ -202,7 +202,7 @@ function getDatetimeString(tz) {
   let period = periods.night;
   if (hour >= 6 && hour < 12) period = periods.morning;
   else if (hour >= 12 && hour < 18) period = periods.afternoon;
-  else if (hour >= 18 && hour < 22) period = periods.evening;
+  else if (hour >= 18 && hour < 23) period = periods.evening;
   
   const hourLabel = lang === 'fr' ? 'Heure locale  : ' : 'Local Time    : ';
   const dateLabel = lang === 'fr' ? 'Date          : ' : 'Date          : ';
@@ -240,7 +240,7 @@ async function getFullContext() {
   let periodVal = periodsVal.night;
   if (hourVal >= 6 && hourVal < 12) periodVal = periodsVal.morning;
   else if (hourVal >= 12 && hourVal < 18) periodVal = periodsVal.afternoon;
-  else if (hourVal >= 18 && hourVal < 22) periodVal = periodsVal.evening;
+  else if (hourVal >= 18 && hourVal < 23) periodVal = periodsVal.evening;
 
   let contextLine = `[${strings.timestampLabel}${formattedDay} ${date}, ${time} (${periodVal})`;
 
