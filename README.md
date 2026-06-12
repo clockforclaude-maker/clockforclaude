@@ -1,6 +1,6 @@
-# 🕒 ClockForClaude — Desktop Extension & Mobile App
+# 🕒 ClockForClaude — Google Chrome Extension (Desktop)
 
-Welcome to **ClockForClaude**! The ultimate tool to inject real-time context (current date, time, local weather, and custom prompt templates) directly into the Claude.ai conversation prompt box.
+Welcome to **ClockForClaude**! The ultimate Google Chrome extension to inject real-time context (current date, time, and local weather) directly into the Claude.ai conversation prompt box.
 
 ---
 
@@ -30,11 +30,8 @@ Welcome to **ClockForClaude**! The ultimate tool to inject real-time context (cu
 ### 💻 Chrome Extension Installation
 Install the extension directly from the [Chrome Web Store (Link Coming Soon)](#).
 
-### 📱 Mobile App Installation
-Download the official mobile app directly from the [Apple App Store](#) and [Google Play Store](#).
-
 ### 💡 How to Use
-1. Open [claude.ai](https://claude.ai) on your browser or open the Mobile App.
+1. Open [claude.ai](https://claude.ai) on your browser.
 2. Click the **🕒 Clock** button to manually insert the current timestamp & weather into your message box.
 3. If you have **Pro**, the context can be injected automatically on every new prompt.
 4. Click on any of your **Custom Prompts** buttons to instantly insert a saved template.
@@ -62,11 +59,8 @@ Download the official mobile app directly from the [Apple App Store](#) and [Goo
 ### 💻 Installation de l'Extension Chrome
 Installez l'extension directement depuis le [Chrome Web Store (Lien à venir)](#).
 
-### 📱 Installation de l'Application Mobile
-Téléchargez l'application officielle directement depuis l'**[Apple App Store](#)** et le **[Google Play Store](#)**.
-
 ### 💡 Utilisation
-1. Ouvrez [claude.ai](https://claude.ai) dans votre navigateur ou lancez l'application mobile.
+1. Ouvrez [claude.ai](https://claude.ai) dans votre navigateur.
 2. Cliquez sur le bouton **🕒 Clock** pour insérer manuellement la date, l'heure et la météo dans votre message.
 3. Si vous avez le forfait **Pro**, le contexte s'injecte automatiquement à chaque message selon vos réglages.
 4. Cliquez sur l'un de vos boutons de **Prompts Rapides** pour l'insérer instantanément.
@@ -94,11 +88,8 @@ Téléchargez l'application officielle directement depuis l'**[Apple App Store](
 ### 💻 Instalación de la Extensión de Chrome
 Instala la extensión directamente desde [Chrome Web Store (Próximamente)](#).
 
-### 📱 Instalación de la Aplicación Móvil
-Descarga la aplicación oficial desde [Apple App Store](#) y [Google Play Store](#).
-
 ### 💡 Cómo usar
-1. Abre [claude.ai](https://claude.ai) en tu navegador o abre la aplicación móvil.
+1. Abre [claude.ai](https://claude.ai) en tu navegador.
 2. Haz clic en el botón **🕒 Clock** para insertar manualmente el clima y la hora actual en tu mensaje.
 3. Si tienes el plan **Pro**, el contexto se puede inyectar automáticamente en cada prompt.
 4. Haz clic en cualquiera de tus botones de **Prompts Personalizados** para insertarlos al instante.
@@ -126,11 +117,8 @@ Descarga la aplicación oficial desde [Apple App Store](#) y [Google Play Store]
 ### 💻 Installazione dell'Estensione Chrome
 Installa l'estensione direttamente dal [Chrome Web Store (Link in arrivo)](#).
 
-### 📱 Installazione dell'App Mobile
-Scarica l'app ufficiale direttamente da [Apple App Store](#) and [Google Play Store](#).
-
 ### 💡 Modalità d'uso
-1. Apri [claude.ai](https://claude.ai) nel tuo browser o avvia l'app mobile.
+1. Apri [claude.ai](https://claude.ai) nel tuo browser.
 2. Fai clic sul pulsante **🕒 Clock** per inserire manualmente ora e meteo nella casella di testo.
 3. Se hai il piano **Pro**, il contesto può essere inserito automaticamente.
 4. Fai clic su un pulsante di **Prompt Rapido** per inserirlo all'istante.
@@ -158,11 +146,8 @@ Scarica l'app ufficiale direttamente da [Apple App Store](#) and [Google Play St
 ### 💻 Installation der Chrome-Erweiterung
 Installieren Sie die Erweiterung direkt aus dem [Chrome Web Store (Link folgt in Kürze)](#).
 
-### 📱 Installation der Mobile-App
-Laden Sie die offizielle App direkt aus dem [Apple App Store](#) und [Google Play Store](#) herunter.
-
 ### 💡 Verwendung
-1. Öffnen Sie [claude.ai](https://claude.ai) im Browser oder starten Sie die Mobile-App.
+1. Öffnen Sie [claude.ai](https://claude.ai) im Browser.
 2. Klicken Sie auf den **🕒 Clock**-Button, um Uhrzeit und Wetter manuell in das Eingabefeld einzufügen.
 3. Mit dem **Pro**-Tarif kann der Kontext bei jedem Prompt automatisch injiziert werden.
 4. Klicken Sie auf einen Ihrer **Schnell-Prompts**-Buttons, um eine Vorlage sofort einzufügen.
@@ -190,11 +175,8 @@ Laden Sie die offizielle App direkt aus dem [Apple App Store](#) und [Google Pla
 ### 💻 Instalação da Extensão do Chrome
 Instale a extensão diretamente da [Chrome Web Store (Link em breve)](#).
 
-### 📱 Instalação do Aplicativo Móvel
-Baixe o aplicativo oficial diretamente da [Apple App Store](#) e da [Google Play Store](#).
-
 ### 💡 Como usar
-1. Abra [claude.ai](https://claude.ai) no navegador ou abra o aplicativo móvel.
+1. Abra [claude.ai](https://claude.ai) no navegador.
 2. Clique no botão **🕒 Clock** para inserir manualmente o clima e a hora atual em sua mensagem.
 3. Se tiver o plano **Pro**, o contexto pode ser injetado automaticamente.
 4. Clique em qualquer botão de **Prompt Rápido** para inseri-lo instantaneamente.
@@ -222,11 +204,8 @@ Baixe o aplicativo oficial diretamente da [Apple App Store](#) e da [Google Play
 ### 💻 Chrome 浏览器扩展安装说明
 直接从 [Chrome 网上应用店（链接即将推出）](#) 安装扩展程序。
 
-### 📱 移动端应用安装与测试
-直接从 [Apple App Store](#) 和 [Google Play Store](#) 下载官方移动应用程序。
-
 ### 💡 如何使用
-1. 在浏览器中打开 [claude.ai](https://claude.ai) 或启动移动端应用。
+1. 在浏览器中打开 [claude.ai](https://claude.ai)。
 2. 点击 **🕒 Clock** 按钮可手动将时间戳与天气插入输入框。
 3. 如果您是 **Pro** 会员，可以设置每次发送提示词时自动注入上下文。
 4. 点击自定义快捷提示词按钮可快速插入保存的模板。
@@ -254,11 +233,8 @@ Baixe o aplicativo oficial diretamente da [Apple App Store](#) e da [Google Play
 ### 💻 Chrome拡張機能のインストール
 [Chrome ウェブストア（リンクは近日公開）](#) から直接拡張機能をインストールします。
 
-### 📱 モバイルアプリのインストール
-[Apple App Store](#) および [Google Play ストア](#) から公式アプリをダウンロードします。
-
 ### 💡 使用方法
-1. ブラウザで [claude.ai](https://claude.ai) を開くか、モバイルアプリを起動します。
+1. ブラウザで [claude.ai](https://claude.ai) を開きます。
 2. **🕒 Clock** ボタンをクリックして、手動で時間と天気を入力欄に挿入します。
 3. **Pro** プランをご契約の場合、すべてのプロンプトにコンテキストを自動的に挿入できます。
 4. **カスタムプロンプト**ボタンをクリックすると、登録テンプレートが即座に挿入されます。
@@ -286,11 +262,8 @@ Baixe o aplicativo oficial diretamente da [Apple App Store](#) e da [Google Play
 ### 💻 تثبيت إضافة كروم
 قم بتثبيت الإضافة مباشرة من [سوق كروم الإلكتروني (الرابط قريبًا)](#).
 
-### 📱 تثبيت تطبيق الهاتف
-قم بتنزيل التطبيق الرسمي مباشرة من [متجر تطبيقات آبل](#) و[متجر غوغل بلاي](#).
-
 ### 💡 كيفية الاستخدام
-1. افتح [claude.ai](https://claude.ai) في متصفحك أو افتح تطبيق الهاتف.
+1. افتح [claude.ai](https://claude.ai) في متصفحك.
 2. اضغط على زر **🕒 Clock** لإدخال الوقت الحالي والطقس يدويًا في رسالتك.
 3. إذا كنت تملك اشتراك **Pro**، يمكن حقن السياق تلقائيًا مع كل أمر.
 4. انقر فوق زر **الأوامر المخصصة** لإدراجه فورًا.
@@ -318,11 +291,8 @@ Baixe o aplicativo oficial diretamente da [Apple App Store](#) e da [Google Play
 ### 💻 Установка расширения Chrome
 Установите расширение прямо из [Chrome Web Store (ссылка скоро появится)](#).
 
-### 📱 Установка мобильного приложения
-Загрузите официальное приложение из [Apple App Store](#) и [Google Play Store](#).
-
 ### 💡 Как использовать
-1. Откройте [claude.ai](https://claude.ai) в браузере или запустите мобильное приложение.
+1. Отгрузите [claude.ai](https://claude.ai) в браузере.
 2. Нажмите кнопку **🕒 Clock** для ручного ввода времени и погоды в поле ввода.
 3. В версии **Pro** контекст может внедряться автоматически при каждом запросе.
 4. Нажмите на любую кнопку **Быстрого запроса** для мгновенной вставки шаблона.
@@ -343,18 +313,15 @@ Baixe o aplicativo oficial diretamente da [Apple App Store](#) e da [Google Play
   * Handmatige invoer van context (datum, tijd, weer) via de **🕒 Clock**-knop.
   * Toegang tot de basis lay-out functionaliteiten.
 * **PRO-versie:**
-  * **Automatische injectie:** De context wordt automatisch bij elk prompt toegevoegd zonder te hoeven klikken.
+  * **Automatische injectie:** De context wordt automatisch bij elk prompt toegevoegd zonder te hoever klikken.
   * **Gepersonaliseerde knoppen:** Tot 5 snelprompt-sjablonen aanmaken, bewerken en opslaan.
   * **Achtergrond-updates:** Lokale weergegevens worden automatisch in de achtergrond bijgewerkt.
 
 ### 💻 Chrome-extensie installeren
 Installeer de extensie rechtstreeks vanuit de [Chrome Web Store (Link volgt binnenkort)](#).
 
-### 📱 Mobiele app installeren
-Download de officiële app rechtstreeks uit de [Apple App Store](#) en [Google Play Store](#).
-
 ### 💡 Hoe te gebruiken
-1. Open [claude.ai](https://claude.ai) in de browser of start de mobiele app.
+1. Open [claude.ai](https://claude.ai) in de browser.
 2. Klik op de **🕒 Clock**-knop om de tijd en het weer handmatig in de invoer te plakken.
 3. Met het **Pro**-tarief kan de context bij elk prompt automatisch worden toegevoegd.
 4. Klik op een **snelprompt**-knop om een sjabloon direct in te voegen.
@@ -382,11 +349,8 @@ Download de officiële app rechtstreeks uit de [Apple App Store](#) en [Google P
 ### 💻 Chrome 확장 프로그램 설치
 [Chrome 웹 스토어(링크 예정)](#)에서 직접 확장 프로그램을 설치하세요.
 
-### 📱 모바일 앱 설치
-[Apple App Store](#) 및 [Google Play 스토어](#)에서 공식 앱을 직접 다운로드하세요.
-
 ### 💡 사용 방법
-1. 브라우저에서 [claude.ai](https://claude.ai)를 열거나 모바일 앱을 실행합니다.
+1. 브라우저에서 [claude.ai](https://claude.ai)를 엽니다.
 2. **🕒 Clock** 버튼을 클릭하여 수동으로 시간과 날씨를 입력창에 주입합니다.
 3. **Pro** 요금제를 사용하는 경우, 모든 프롬프트에 컨텍스트를 자동 주입할 수 있습니다.
 4. 원하는 **맞춤형 프롬프트** 버튼을 눌러 저장된 템플릿을 즉시 입력합니다.
@@ -414,11 +378,8 @@ Download de officiële app rechtstreeks uit de [Apple App Store](#) en [Google P
 ### 💻 क्रोम एक्सटेंशन कैसे स्थापित करें
 [Chrome Web Store (लिंक जल्द ही आ रहा है)](#) से सीधे एक्सटेंशन इंस्टॉल करें।
 
-### 📱 मोबाइल ऐप स्थापित करना
-आधिकारिक ऐप सीधे [Apple App Store](#) और [Google Play Store](#) से डाउनलोड करें।
-
 ### 💡 उपयोग कैसे करें
-1. अपने ब्राउज़र में [claude.ai](https://claude.ai) खोलें या मोबाइल ऐप शुरू करें।
+1. अपने ब्राउज़र में [claude.ai](https://claude.ai) खोलें.
 2. मैन्युअल रूप से मौसम और समय डालने के लिए **🕒 Clock** बटन दबाएं।
 3. यदि आपके पास **Pro** प्लान है, तो संदर्भ हर बार स्वचालित रूप से डाला जा सकता है।
 4. सहेजे गए टेम्पलेट को तुरंत दर्ज करने के लिए किसी भी **त्वरित संकेत** बटन पर क्लिक करें।
@@ -446,11 +407,8 @@ Download de officiële app rechtstreeks uit de [Apple App Store](#) en [Google P
 ### 💻 Chrome Uzantısı Kurulumu
 Uzantıyı doğrudan [Chrome Web Mağazası (Bağlantı yakında)](#) üzerinden yükleyin.
 
-### 📱 Mobil Uygulama Kurulumu
-Resmi uygulamayı doğrudan [Apple App Store](#) ve [Google Play Store](#) üzerinden indirin.
-
 ### 💡 Nasıl Kullanılır
-1. Tarayıcınızda [claude.ai](https://claude.ai) adresini açın veya mobil uygulamayı başlatın.
+1. Tarayıcınızda [claude.ai](https://claude.ai) adresini açın.
 2. Giriş kutusuna saat ve hava durumunu manuel eklemek için **🕒 Clock** butonuna tıklayın.
 3. Eğer **Pro** planına sahipseniz, bağlam otomatik olarak her isteme eklenebilir.
 4. Kaydedilen şablonu anında eklemek için herhangi bir **özel istem** butonuna tıklayın.
@@ -478,11 +436,8 @@ Resmi uygulamayı doğrudan [Apple App Store](#) ve [Google Play Store](#) üzer
 ### 💻 Instalacja rozszerzenia Chrome
 Zainstaluj rozszerzenie bezpośrednio z [Chrome Web Store (Link wkrótce)](#).
 
-### 📱 Aplikacja Mobilna
-Pobierz oficjalną aplikację bezpośrednio z [Apple App Store](#) i [Google Play Store](#).
-
 ### 💡 Jak używać
-1. Otwórz [claude.ai](https://claude.ai) w przeglądarce lub uruchom aplikację mobilną.
+1. Otwórz [claude.ai](https://claude.ai) w przeglądarce.
 2. Kliknij przycisk **🕒 Clock**, aby ręcznie wkleić czas i pogodę do pola tekstowego.
 3. W wersji **Pro** kontekst może być wstrzykiwany automatycznie przy każdym zapytywaniu.
 4. Kliknij przycisk **Szybkiego promptu**, aby natychmiast wkleić szablon.
@@ -510,14 +465,11 @@ Pobierz oficjalną aplikację bezpośrednio z [Apple App Store](#) i [Google Pla
 ### 💻 Installera Chrome-tillägget
 Installera tillägget direkt från [Chrome Web Store (Länk kommer snart)](#).
 
-### 📱 Installera mobilappen
-Ladda ner den officiella appen direkt från [Apple App Store](#) och [Google Play Store](#).
-
 ### 💡 Hur man använder det
-1. Öppna [claude.ai](https://claude.ai) i webbläsaren eller starta mobilappen.
+1. Öppna [claude.ai](https://claude.ai) i webbläsaren.
 2. Klicka på **🕒 Clock** knappen för att klistra in väder och tid manuellt.
 3. Med **Pro**-abonnemanget kan kontexten läggas till automatiskt vid varje skickat meddelande.
-4. Klicka på valfri **snabbprompt**-knapp för att infoga din mall direkt.
+4. Klicka på valfri **snabbprompt**-knapp for att infoga din mall direkt.
 </details>
 
 ---
