@@ -6,8 +6,9 @@
   right: 8px;
   z-index: 100;
   display: flex;
-  align-items: center;
-  gap: 6px;
+  flex-direction: column-reverse;
+  align-items: flex-end;
+  gap: 4px;
   font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
   pointer-events: auto;
 }

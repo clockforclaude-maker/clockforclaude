@@ -114,7 +114,7 @@ function setupInjections() {
   if (!editor) return;
 
   // Add right padding so text doesn't flow under our floating buttons
-  editor.style.setProperty('padding-right', '110px', 'important');
+  editor.style.setProperty('padding-right', '80px', 'important');
 
   // Check for auto-inject on empty focused inputs (handles SPA transitions where focus is retained)
   checkPolledAutoInject(editor);
