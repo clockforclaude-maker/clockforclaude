@@ -119,16 +119,13 @@ function setupInjections() {
   // Check for auto-inject on empty focused inputs (handles SPA transitions where focus is retained)
   checkPolledAutoInject(editor);
 
-  // Find the closest ancestor container that represents the visual input box
-  // (typically a fieldset or form) to avoid clipping due to overflow:hidden on text wrappers
-  const container = editor.closest('fieldset') || editor.closest('form') || editor.closest('.relative') || editor.parentElement;
+  // Inject the badge container directly into the editor's parent element to ensure
+  // it sits inside the text editor area and doesn't overlap external elements (like banners).
+  const container = editor.parentElement;
   if (!container) return;
 
-  // Ensure container has relative positioning so our absolute badge aligns correctly
-  const computedStyle = window.getComputedStyle(container);
-  if (computedStyle.position === 'static') {
-    container.style.position = 'relative';
-  }
+  // Force container to have relative positioning so our absolute badge aligns correctly
+  container.style.setProperty('position', 'relative', 'important');
 
   // Check if our badge is already present
   const existingBadge = container.querySelector('.c4c-badge-container');
