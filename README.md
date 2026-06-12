@@ -1,6 +1,8 @@
 # 🕒 ClockForClaude — Google Chrome Extension (Desktop)
 
-Welcome to **ClockForClaude**! The ultimate Google Chrome extension to inject real-time context (current date, time, and local weather) directly into the Claude.ai conversation prompt box.
+Bienvenue sur **ClockForClaude** ! L'extension ultime pour Google Chrome permettant d'intégrer des informations en temps réel (date, heure et météo locale) directement dans la zone de saisie de Claude.ai.
+
+*Welcome to **ClockForClaude**! The ultimate Google Chrome extension to inject real-time context (current date, time, and local weather) directly into the Claude.ai conversation prompt box.*
 
 ---
 
