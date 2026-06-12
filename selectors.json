@@ -1,0 +1,3 @@
+{
+  "editor": "div[contenteditable=\"true\"], div.ProseMirror, div[role=\"textbox\"]"
+}

@@ -17,7 +17,7 @@ async function loadRemoteSelectors() {
   } catch (e) {}
 
   try {
-    const configUrl = "https://raw.githubusercontent.com/clockforclaude-maker/clockforclaude-config/main/selectors.json";
+    const configUrl = "https://raw.githubusercontent.com/clockforclaude-maker/clockforclaude/main/selectors.json";
     const controller = new AbortController();
     const id = setTimeout(() => controller.abort(), 3000);
     const response = await fetch(configUrl, { signal: id.signal });
