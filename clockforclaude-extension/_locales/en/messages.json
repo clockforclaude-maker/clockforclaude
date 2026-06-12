@@ -130,5 +130,20 @@
   },
   "quickPromptsInfo": {
     "message": "Max 5 prompts. These shortcuts appear next to the Clock button."
+  },
+  "helpTitle": {
+    "message": "Help & Troubleshooting"
+  },
+  "helpQ1": {
+    "message": "Why is the weather not showing up?"
+  },
+  "helpA1": {
+    "message": "If the weather block is missing, ensure 'Local weather' is enabled. Under Location, click 'Detect' to grant GPS permissions, or switch to 'Manual' and enter your city coordinates."
+  },
+  "helpQ2": {
+    "message": "How do I activate Pro features?"
+  },
+  "helpA2": {
+    "message": "Subscribe via Stripe, then type your billing email address into the activation box and click 'Activate'."
   }
 }

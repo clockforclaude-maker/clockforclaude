@@ -118,5 +118,20 @@
   },
   "autoIndicatorTooltipAll": {
     "message": "Injeção automática activa (Cada mensagem)"
+  },
+  "helpTitle": {
+    "message": "Ajuda e Suporte"
+  },
+  "helpQ1": {
+    "message": "Por que o clima não está aparecendo?"
+  },
+  "helpA1": {
+    "message": "Se o bloco do clima estiver ausente, verifique se 'Clima local' está ativado. Em Localização, clique em 'Detectar' para permitir o GPS, ou digite as coordenadas manualmente."
+  },
+  "helpQ2": {
+    "message": "Como ativar os recursos Pro?"
+  },
+  "helpA2": {
+    "message": "Inscreva-se via Stripe, digite seu e-mail de faturamento no campo de ativação e clique em 'Ativar'."
   }
 }

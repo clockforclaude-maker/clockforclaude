@@ -118,5 +118,20 @@
   },
   "autoIndicatorTooltipAll": {
     "message": "自动注入激活（每条消息）"
+  },
+  "helpTitle": {
+    "message": "帮助与故障排除"
+  },
+  "helpQ1": {
+    "message": "为什么没有显示天气？"
+  },
+  "helpA1": {
+    "message": "如果天气信息缺失，请确保已启用“本地天气”。在“位置”下，点击“检测”以授予 GPS 权限，或切换到“手动”输入您的坐标。"
+  },
+  "helpQ2": {
+    "message": "如何激活 Pro 功能？"
+  },
+  "helpA2": {
+    "message": "通过 Stripe 订阅，然后在激活框中输入您的账单邮箱并点击“激活”。"
   }
 }

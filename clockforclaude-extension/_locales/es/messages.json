@@ -118,5 +118,20 @@
   },
   "autoIndicatorTooltipAll": {
     "message": "Inyección automática activa (Cada mensaje)"
+  },
+  "helpTitle": {
+    "message": "Ayuda y Soporte"
+  },
+  "helpQ1": {
+    "message": "¿Por qué no aparece el clima?"
+  },
+  "helpA1": {
+    "message": "Si falta el bloque del clima, asegúrese de que el 'Tiempo local' esté activado. En Ubicación, haga clic en 'Detectar' para dar permisos de GPS, o elija 'Manuelle' e ingrese sus coordenadas."
+  },
+  "helpQ2": {
+    "message": "¿Cómo activo las funciones Pro?"
+  },
+  "helpA2": {
+    "message": "Suscríbase en Stripe, ingrese su correo de facturación en la casilla de activación y haga clic en 'Activer'."
   }
 }

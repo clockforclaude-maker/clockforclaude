@@ -379,6 +379,23 @@ document.addEventListener('DOMContentLoaded', async () => {
     }, 500);
   });
 
+  // Toggle Help Accordion
+  const toggleHelpBtn = document.getElementById('toggle-help-btn');
+  const helpContentPanel = document.getElementById('help-content-panel');
+  const helpArrow = document.getElementById('help-arrow');
+  if (toggleHelpBtn && helpContentPanel) {
+    toggleHelpBtn.addEventListener('click', () => {
+      const isHidden = helpContentPanel.classList.contains('hidden');
+      if (isHidden) {
+        helpContentPanel.classList.remove('hidden');
+        helpArrow.classList.add('open');
+      } else {
+        helpContentPanel.classList.add('hidden');
+        helpArrow.classList.remove('open');
+      }
+    });
+  }
+
   // --- Helper Functions ---
 
   function localizeHtmlPage() {

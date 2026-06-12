@@ -130,5 +130,20 @@
   },
   "quickPromptsInfo": {
     "message": "Max 5 prompts. Ces raccourcis s'affichent à côté du bouton Clock."
+  },
+  "helpTitle": {
+    "message": "Aide & Résolution des problèmes"
+  },
+  "helpQ1": {
+    "message": "Pourquoi la météo ne s'affiche-t-elle pas ?"
+  },
+  "helpA1": {
+    "message": "Si le bloc météo est absent de Claude, assurez-vous que la météo locale est activée, et cliquez sur le bouton 'Détecter' sous Localisation pour autoriser le GPS, ou définissez vos coordonnées manuellement."
+  },
+  "helpQ2": {
+    "message": "Comment activer les fonctionnalités Pro ?"
+  },
+  "helpA2": {
+    "message": "Abonnez-vous sur Stripe, puis saisissez votre e-mail de facturation dans la case d'activation et cliquez sur 'Activer'."
   }
 }

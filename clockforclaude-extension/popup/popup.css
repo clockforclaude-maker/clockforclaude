@@ -699,3 +699,27 @@ input:checked + .switch-slider:before {
   color: var(--error-color);
 }
 
+/* Help Section Styles */
+.help-section {
+  cursor: default;
+}
+.toggle-help-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  user-select: none;
+}
+.arrow-icon {
+  font-size: 8px;
+  color: var(--text-muted);
+  transition: transform var(--transition-fast) ease;
+}
+.arrow-icon.open {
+  transform: rotate(180deg);
+}
+#help-content-panel hr {
+  border: 0;
+  border-top: 1px solid var(--border-color);
+  margin: 4px 0;
+}
+

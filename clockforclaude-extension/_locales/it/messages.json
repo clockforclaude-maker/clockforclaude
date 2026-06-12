@@ -118,5 +118,20 @@
   },
   "autoIndicatorTooltipAll": {
     "message": "Iniezione automatica attiva (Ogni messaggio)"
+  },
+  "helpTitle": {
+    "message": "Aiuto e Supporto"
+  },
+  "helpQ1": {
+    "message": "Perché il meteo non viene visualizzato?"
+  },
+  "helpA1": {
+    "message": "Se il blocco meteo manca, assicurarsi che 'Meteo locale' sia attivo. In Posizione, cliccare su 'Rileva' per autorizzare il GPS, o impostare le coordinate manualmente in modalità 'Manuale'."
+  },
+  "helpQ2": {
+    "message": "Come attivare le funzioni Pro?"
+  },
+  "helpA2": {
+    "message": "Abbonarsi su Stripe, inserire l'email di fatturazione nella casella di attivazione e cliccare su 'Attiva'."
   }
 }

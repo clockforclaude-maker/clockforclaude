@@ -118,5 +118,20 @@
   },
   "autoIndicatorTooltipAll": {
     "message": "Automatisches Einfügen aktiv (Jede Nachricht)"
+  },
+  "helpTitle": {
+    "message": "Hilfe & Fehlerbehebung"
+  },
+  "helpQ1": {
+    "message": "Warum wird das Wetter nicht angezeigt?"
+  },
+  "helpA1": {
+    "message": "Wenn das Wetter fehlt, stellen Sie sicher, dass 'Lokales Wetter' aktiviert ist. Klicken Sie unter Standort auf 'Erkennen', um GPS-Berechtigungen zu erteilen, oder geben Sie Ihre Koordinaten manuell ein."
+  },
+  "helpQ2": {
+    "message": "Wie aktiviere ich die Pro-Funktionen?"
+  },
+  "helpA2": {
+    "message": "Abonnieren Sie über Stripe, geben Sie Ihre Abrechnungs-E-Mail-Adresse in das Aktivierungsfeld ein und klicken Sie auf 'Aktivieren'."
   }
 }
