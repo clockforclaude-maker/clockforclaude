@@ -20,6 +20,12 @@ ClockForClaude fournit un injecteur de contexte local (heure, météo, calendrie
 *   **Dépendance à Claude.ai** : ClockForClaude dépend de la structure de l'interface utilisateur de `claude.ai`. En cas de mise à jour majeure effectuée par Anthropic sur leur site web, le fonctionnement de l'injection peut être temporairement interrompu. Nous nous efforçons de publier des mises à jour correctives le plus rapidement possible, mais ne garantissons aucun taux de disponibilité ininterrompu.
 *   **Limitation de Responsabilité** : ClockForClaude ne pourra être tenu responsable de toute perte de données, suspension de compte Claude, ou dysfonctionnement lié à l'utilisation combinée des services.
 
+### 4. Résolution des Litiges et Médiation de la Consommation
+En cas de litige, vous devez d'abord contacter notre service client par e-mail. Si aucune solution amiable n'est trouvée, et conformément aux articles L.612-1 et suivants du Code de la consommation, vous pouvez recourir gratuitement au médiateur de la consommation agréé auquel nous adhérons :
+*   **Médiateur désigné** : CNPM MÉDIATION CONSOMMATION
+*   **Site internet** : https://www.cnpm-mediation-consommation.eu/
+*   **Adresse postale** : CNPM - MÉDIATION - CONSOMMATION, 27 avenue de la Libération, 42400 Saint-Chamond, France.
+
 ---
 
 ## 🇺🇸 English: Terms of Service
@@ -37,3 +43,9 @@ ClockForClaude provides a local context injector (time, weather, calendar) desig
 ### 3. Service Level and Limitation of Liability
 *   **Dependency on Claude.ai**: ClockForClaude relies directly on the interface structure of `claude.ai`. In the event of a major UI update by Anthropic, injection features may be temporarily interrupted. While we make every effort to release hotfixes rapidly, we do not guarantee uninterrupted service uptime.
 *   **Limitation of Liability**: ClockForClaude shall not be held liable for any data loss, Claude account suspension, or any bugs resulting from the combined usage of these services.
+
+### 4. Dispute Resolution & Consumer Mediation
+In the event of a dispute, you must first contact our customer support via email. If no amicable resolution is reached, and in accordance with French consumer laws, EU consumers may refer the dispute to the following approved consumer mediator:
+*   **Designated Mediator**: CNPM MÉDIATION CONSOMMATION
+*   **Website**: https://www.cnpm-mediation-consommation.eu/
+*   **Postal Address**: CNPM - MÉDIATION - CONSOMMATION, 27 avenue de la Libération, 42400 Saint-Chamond, France.
