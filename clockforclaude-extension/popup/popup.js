@@ -296,16 +296,18 @@ document.addEventListener('DOMContentLoaded', async () => {
         locStatusText.textContent = chrome.i18n.getMessage('locStatusSuccess') || "Success!";
         locCoords.textContent = `Lat: ${lat}, Lon: ${lon}`;
         
-        let city = "Detected location";
+        const lang = getExtensionLanguage();
+        let city = lang === 'fr' ? 'Position détectée' : 'Detected location';
         
-        // Reverse Geocoding with Open-Meteo (free & open)
+        // Reverse Geocoding with BigDataCloud (free & keyless client-side API)
         try {
           locStatusText.textContent = chrome.i18n.getMessage('locStatusSearching') || "Searching city...";
-          const geoUrl = `https://geocoding-api.open-meteo.com/v1/reverse?latitude=${lat}&longitude=${lon}&count=1`;
+          const geoUrl = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lon}&localityLanguage=${lang}`;
           const res = await fetch(geoUrl);
           const data = await res.json();
-          if (data.results && data.results.length > 0) {
-            city = data.results[0].name;
+          const resolvedCity = data.city || data.locality || data.principalSubdivision;
+          if (resolvedCity) {
+            city = resolvedCity;
             locStatusText.textContent = city;
           } else {
             locStatusText.textContent = chrome.i18n.getMessage('locStatusSuccess') || "Success!";
