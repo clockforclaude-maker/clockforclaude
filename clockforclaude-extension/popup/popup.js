@@ -405,7 +405,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (element.tagName === 'INPUT' && (element.type === 'button' || element.type === 'submit')) {
           element.value = translation;
         } else {
-          element.textContent = translation;
+          if (translation.includes('<')) {
+            element.innerHTML = translation;
+          } else {
+            element.textContent = translation;
+          }
         }
       }
     }

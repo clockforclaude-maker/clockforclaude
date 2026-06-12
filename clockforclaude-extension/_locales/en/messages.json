@@ -163,5 +163,11 @@
   },
   "helpA4": {
     "message": "IP detection provides an approximate position. For perfect accuracy, switch to 'Manual' location mode, enter your city name and coordinates, then save."
+  },
+  "helpQ5": {
+    "message": "How to open the extension if it is not visible?"
+  },
+  "helpA5": {
+    "message": "Click the <span class=\"text-blue\">puzzle</span> icon (Extensions) in the top right of Chrome, find the <span class=\"text-blue\">ClockForClaude</span> extension, and click on it to open it. You can also click the pin icon next to it to keep it always visible in your toolbar."
   }
 }

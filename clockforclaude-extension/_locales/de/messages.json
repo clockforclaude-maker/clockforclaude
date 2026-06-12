@@ -151,5 +151,11 @@
   },
   "helpA4": {
     "message": "Die IP-Erkennung liefert einen ungefähren Standort. Für perfekte Genauigkeit wechseln Sie in den Modus 'Manuell', geben Sie Ihre Stadt und Koordinaten ein und speichern Sie."
+  },
+  "helpQ5": {
+    "message": "Wie öffne ich die Erweiterung, wenn sie nicht sichtbar ist?"
+  },
+  "helpA5": {
+    "message": "Klicken Sie auf das <span class=\"text-blue\">Puzzle</span>-Symbol (Erweiterungen) oben rechts in Chrome, suchen Sie nach der Erweiterung <span class=\"text-blue\">ClockForClaude</span> und klicken Sie darauf, um sie zu öffnen. Sie können auch auf das Stecknadelsymbol daneben klicken, damit sie in Ihrer Symbolleiste sichtbar bleibt."
   }
 }

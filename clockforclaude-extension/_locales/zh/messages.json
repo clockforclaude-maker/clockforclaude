@@ -151,5 +151,11 @@
   },
   "helpA4": {
     "message": "IP 定位仅提供大概位置。要获得完美精度，请切换到“手动”定位模式，输入您的城市名称和经纬度并保存。"
+  },
+  "helpQ5": {
+    "message": "如果插件未显示，如何打开它？"
+  },
+  "helpA5": {
+    "message": "点击 Chrome 浏览器右上角的<span class=\"text-blue\">拼图</span>图标（扩展程序），找到 <span class=\"text-blue\">ClockForClaude</span> 插件并点击打开它。您还可以点击旁边的图钉图标，将其固定在工具栏中。"
   }
 }

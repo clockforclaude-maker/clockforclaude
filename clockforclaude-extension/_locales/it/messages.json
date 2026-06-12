@@ -151,5 +151,11 @@
   },
   "helpA4": {
     "message": "Il rilevamento IP fornisce una posizione approssimativa. Per una precisione perfetta, passate alla modalità 'Manuale', inserite la città e le coordinate, quindi salvate."
+  },
+  "helpQ5": {
+    "message": "Come aprire l'estensione se non è visibile?"
+  },
+  "helpA5": {
+    "message": "Fai clic sull'icona del <span class=\"text-blue\">puzzle</span> (Estensioni) in alto a destra su Chrome, cerca l'estensione <span class=\"text-blue\">ClockForClaude</span> e fai clic su di essa per aprirla. Puoi anche fare clic sull'icona della puntina per mantenerla sempre visibile."
   }
 }

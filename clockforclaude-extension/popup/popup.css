@@ -723,3 +723,11 @@ input:checked + .switch-slider:before {
   margin: 4px 0;
 }
 
+.text-blue {
+  color: #2563eb !important;
+  font-weight: 600;
+}
+body.dark-theme .text-blue {
+  color: #60a5fa !important;
+}
+

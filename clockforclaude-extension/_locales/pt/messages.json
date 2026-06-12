@@ -151,5 +151,11 @@
   },
   "helpA4": {
     "message": "A detecção por IP fornece uma posição aproximada. Para precisão perfeita, mude para o modo de localização 'Manual', insira sua cidade e coordenadas, e salve."
+  },
+  "helpQ5": {
+    "message": "Como abrir a extensão se não estiver visível?"
+  },
+  "helpA5": {
+    "message": "Clique no ícone de <span class=\"text-blue\">quebra-cabeça</span> (Extensões) no canto superior direito do Chrome, procure a extensão <span class=\"text-blue\">ClockForClaude</span> e clique nela para abrir. Você também pode clicar no ícone do alfinete para mantê-la sempre visível."
   }
 }
