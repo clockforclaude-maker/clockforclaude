@@ -139,5 +139,17 @@
   },
   "darkModeDesc": {
     "message": "Aktiviert das dunkle Design für die Erweiterung und Claude.ai."
+  },
+  "helpQ3": {
+    "message": "Erweiterung wird auf Claude.ai nicht angezeigt?"
+  },
+  "helpA3": {
+    "message": "Stellen Sie sicher, dass der Hauptschalter (oben rechts) auf EIN steht. Laden Sie die Claude.ai-Seite neu (F5). Bei Designänderungen aktualisieren wir die Selektoren automatisch."
+  },
+  "helpQ4": {
+    "message": "Automatische Standorterkennung ungenau?"
+  },
+  "helpA4": {
+    "message": "Die IP-Erkennung liefert einen ungefähren Standort. Für perfekte Genauigkeit wechseln Sie in den Modus 'Manuell', geben Sie Ihre Stadt und Koordinaten ein und speichern Sie."
   }
 }

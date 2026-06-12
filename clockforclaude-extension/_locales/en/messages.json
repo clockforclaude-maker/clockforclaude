@@ -151,5 +151,17 @@
   },
   "darkModeDesc": {
     "message": "Enables dark theme for the extension and Claude.ai."
+  },
+  "helpQ3": {
+    "message": "Extension not showing up on Claude.ai?"
+  },
+  "helpA3": {
+    "message": "Ensure the main toggle (top-right) is turned ON. Reload the Claude.ai page (F5). If Claude changes its design, our servers automatically update the selectors within a few hours."
+  },
+  "helpQ4": {
+    "message": "Is automatic location inaccurate?"
+  },
+  "helpA4": {
+    "message": "IP detection provides an approximate position. For perfect accuracy, switch to 'Manual' location mode, enter your city name and coordinates, then save."
   }
 }

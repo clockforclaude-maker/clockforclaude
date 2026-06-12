@@ -151,5 +151,17 @@
   },
   "darkModeDesc": {
     "message": "Active le thème sombre sur l'extension et Claude.ai."
+  },
+  "helpQ3": {
+    "message": "L'extension ne s'affiche pas sur Claude.ai ?"
+  },
+  "helpA3": {
+    "message": "Assurez-vous que le commutateur principal (en haut à droite) est activé. Rechargez la page Claude.ai (F5). En cas de mise à jour de Claude, nos sélecteurs se mettent à jour automatiquement à distance sous quelques heures."
+  },
+  "helpQ4": {
+    "message": "La localisation automatique est inexacte ?"
+  },
+  "helpA4": {
+    "message": "La détection IP donne une position approximative. Pour une précision parfaite, passez en mode de localisation \"Manuelle\" dans la section \"Localisation\", puis entrez votre ville et ses coordonnées précises et enregistrez."
   }
 }

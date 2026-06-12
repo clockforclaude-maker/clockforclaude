@@ -139,5 +139,17 @@
   },
   "darkModeDesc": {
     "message": "Attiva il tema scuro per l'estensione e Claude.ai."
+  },
+  "helpQ3": {
+    "message": "L'estensione non viene visualizzata su Claude.ai?"
+  },
+  "helpA3": {
+    "message": "Assicuratevi che l'interruttore principale (in alto a destra) sia attivo. Ricaricate la pagina Claude.ai (F5). In caso di aggiornamenti di Claude, i nostri selettori si aggiornano automaticamente."
+  },
+  "helpQ4": {
+    "message": "La localizzazione automatica è imprecisa?"
+  },
+  "helpA4": {
+    "message": "Il rilevamento IP fornisce una posizione approssimativa. Per una precisione perfetta, passate alla modalità 'Manuale', inserite la città e le coordinate, quindi salvate."
   }
 }

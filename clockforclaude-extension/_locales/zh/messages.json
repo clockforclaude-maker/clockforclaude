@@ -139,5 +139,17 @@
   },
   "darkModeDesc": {
     "message": "启用插件和 Claude.ai 的深色主题。"
+  },
+  "helpQ3": {
+    "message": "插件未在 Claude.ai 上显示？"
+  },
+  "helpA3": {
+    "message": "请确保右上角的主开关已开启。刷新 Claude.ai 页面 (F5)。如果 Claude 更改了设计，我们的服务器将在几小时内自动更新选择器。"
+  },
+  "helpQ4": {
+    "message": "自动定位不准确？"
+  },
+  "helpA4": {
+    "message": "IP 定位仅提供大概位置。要获得完美精度，请切换到“手动”定位模式，输入您的城市名称和经纬度并保存。"
   }
 }

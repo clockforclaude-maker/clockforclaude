@@ -139,5 +139,17 @@
   },
   "darkModeDesc": {
     "message": "Ativa o tema escuro na extensão e no Claude.ai."
+  },
+  "helpQ3": {
+    "message": "A extensão não aparece no Claude.ai?"
+  },
+  "helpA3": {
+    "message": "Verifique se o interruptor principal (canto superior direito) está ligado. Recarregue a página do Claude.ai (F5). Se o Claude mudar de design, nossos seletores se atualizam automaticamente."
+  },
+  "helpQ4": {
+    "message": "A localização automática é imprecisa?"
+  },
+  "helpA4": {
+    "message": "A detecção por IP fornece uma posição aproximada. Para precisão perfeita, mude para o modo de localização 'Manual', insira sua cidade e coordenadas, e salve."
   }
 }
