@@ -336,11 +336,61 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // Manual Location Save
   btnSaveManual.addEventListener('click', async () => {
-    const latStr = String(manualLat.value).replace(',', '.');
-    const lonStr = String(manualLon.value).replace(',', '.');
-    const lat = parseFloat(latStr);
-    const lon = parseFloat(lonStr);
-    const city = manualCity.value.trim();
+    let latStr = String(manualLat.value).trim().replace(',', '.');
+    let lonStr = String(manualLon.value).trim().replace(',', '.');
+    let city = manualCity.value.trim();
+
+    if (!city) {
+      alert(uiLang.startsWith('fr') ? "Veuillez entrer une ville ou un code postal." : "Please enter a city or postal code.");
+      return;
+    }
+
+    let lat = parseFloat(latStr);
+    let lon = parseFloat(lonStr);
+
+    // If coordinates are missing, fetch them automatically using Open-Meteo Geocoding API
+    if (isNaN(lat) || isNaN(lon)) {
+      btnSaveManual.disabled = true;
+      const originalText = btnSaveManual.textContent;
+      btnSaveManual.textContent = uiLang.startsWith('fr') ? "Recherche des coordonnées..." : "Searching coordinates...";
+      
+      try {
+        const lang = uiLang.split('-')[0];
+        const geoUrl = `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(city)}&count=1&language=${lang}&format=json`;
+        const res = await fetch(geoUrl);
+        const data = await res.json();
+        
+        if (data && data.results && data.results.length > 0) {
+          const result = data.results[0];
+          lat = parseFloat(result.latitude);
+          lon = parseFloat(result.longitude);
+          
+          // Format resolved city name with country
+          const resolvedCity = result.name;
+          const resolvedCountry = result.country ? `, ${result.country}` : '';
+          city = resolvedCity + resolvedCountry;
+          
+          // Fill fields in the UI
+          manualLat.value = lat.toFixed(4);
+          manualLon.value = lon.toFixed(4);
+          manualCity.value = city;
+        } else {
+          alert(uiLang.startsWith('fr') ? "Ville ou code postal introuvable. Veuillez vérifier ou entrer les coordonnées manuellement." : "City or postal code not found. Please check or enter coordinates manually.");
+          btnSaveManual.disabled = false;
+          btnSaveManual.textContent = originalText;
+          return;
+        }
+      } catch (err) {
+        console.error("Geocoding failed:", err);
+        alert(uiLang.startsWith('fr') ? "Erreur lors de la recherche de la ville. Veuillez entrer les coordonnées manuellement." : "Error searching city. Please enter coordinates manually.");
+        btnSaveManual.disabled = false;
+        btnSaveManual.textContent = originalText;
+        return;
+      }
+      
+      btnSaveManual.disabled = false;
+      btnSaveManual.textContent = originalText;
+    }
 
     if (isNaN(lat) || isNaN(lon) || lat < -90 || lat > 90 || lon < -180 || lon > 180) {
       alert(chrome.i18n.getMessage('invalidCoordsAlert') || "Invalid coordinates. Latitude: -90 to 90, Longitude: -180 to 180.");
@@ -417,7 +467,15 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Translate placeholders
     const cityInput = document.getElementById('manual-city');
     if (cityInput) {
-      cityInput.placeholder = chrome.i18n.getMessage('cityPlaceholder') || "E.g. Paris";
+      cityInput.placeholder = chrome.i18n.getMessage('cityPlaceholder') || "E.g. Paris or 31000";
+    }
+    const latInput = document.getElementById('manual-lat');
+    if (latInput) {
+      latInput.placeholder = chrome.i18n.getMessage('latPlaceholder') || "Optional (e.g. 48.8566)";
+    }
+    const lonInput = document.getElementById('manual-lon');
+    if (lonInput) {
+      lonInput.placeholder = chrome.i18n.getMessage('lonPlaceholder') || "Optional (e.g. 2.3522)";
     }
     const emailInput = document.getElementById('premium-email-input');
     if (emailInput) {

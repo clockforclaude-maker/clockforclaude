@@ -119,9 +119,9 @@ function setupInjections() {
   // Check for auto-inject on empty focused inputs (handles SPA transitions where focus is retained)
   checkPolledAutoInject(editor);
 
-  // We need to inject the button in a parent container of the editor
-  // Claude usually wraps the editor in a relative or flex container
-  const container = editor.parentElement;
+  // Find the closest ancestor container that represents the visual input box
+  // (typically a fieldset or form) to avoid clipping due to overflow:hidden on text wrappers
+  const container = editor.closest('fieldset') || editor.closest('form') || editor.closest('.relative') || editor.parentElement;
   if (!container) return;
 
   // Ensure container has relative positioning so our absolute badge aligns correctly
