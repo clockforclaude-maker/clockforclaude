@@ -1,0 +1,134 @@
+{
+  "appName": {
+    "message": "ClockForClaude"
+  },
+  "appDesc": {
+    "message": "Donnez à Claude une fenêtre sur le monde : heure locale, date, météo et heures creuses directement dans claude.ai."
+  },
+  "settingsTitle": {
+    "message": "Configuration"
+  },
+  "injectModeLabel": {
+    "message": "Mode d'injection"
+  },
+  "modeFirst": {
+    "message": "Premier message"
+  },
+  "modeAll": {
+    "message": "Chaque message"
+  },
+  "modeManual": {
+    "message": "Manuel"
+  },
+  "weatherLabel": {
+    "message": "Météo locale"
+  },
+  "weatherDesc": {
+    "message": "Ajoute la température, le vent et le coucher de soleil."
+  },
+  "offpeakLabel": {
+    "message": "Affluence réseau"
+  },
+  "offpeakDesc": {
+    "message": "Indique à Claude si la charge des serveurs est basse ou normale pour optimiser ses réponses."
+  },
+  "locationTitle": {
+    "message": "Localisation (Météo)"
+  },
+  "locAuto": {
+    "message": "Automatique"
+  },
+  "locManual": {
+    "message": "Manuelle"
+  },
+  "locStatusInactive": {
+    "message": "Géolocalisation inactive"
+  },
+  "locStatusDetecting": {
+    "message": "Détection en cours..."
+  },
+  "locStatusSuccess": {
+    "message": "Géolocalisation réussie !"
+  },
+  "locStatusSearching": {
+    "message": "Recherche de la ville..."
+  },
+  "locStatusFailed": {
+    "message": "Échec de détection"
+  },
+  "btnDetect": {
+    "message": "Détecter"
+  },
+  "labelCity": {
+    "message": "Ville"
+  },
+  "labelLat": {
+    "message": "Latitude"
+  },
+  "labelLon": {
+    "message": "Longitude"
+  },
+  "btnSaveManual": {
+    "message": "Enregistrer la position"
+  },
+  "previewTitle": {
+    "message": "Aperçu en temps réel"
+  },
+  "previewLoading": {
+    "message": "Génération de l'aperçu..."
+  },
+  "premiumBadge": {
+    "message": "⚡ PRO"
+  },
+  "premiumTitle": {
+    "message": "Intégrations Premium"
+  },
+  "premiumDesc": {
+    "message": "Connectez Google Calendar, Outlook, Todoist et Notion pour que Claude devienne votre véritable assistant temporel."
+  },
+  "btnPremium": {
+    "message": "Passer à ClockForClaude Pro — 2,49 € / mois"
+  },
+  "footerMadeBy": {
+    "message": "Fait avec ❤️ par ClockForClaude"
+  },
+  "btnClock": {
+    "message": "🕒 Clock"
+  },
+  "btnInjected": {
+    "message": "Injecté !"
+  },
+  "tooltipInject": {
+    "message": "Injecter le contexte temporel actuel"
+  },
+  "invalidEmailAlert": {
+    "message": "Veuillez saisir une adresse email valide."
+  },
+  "invalidCoordsAlert": {
+    "message": "Coordonnées invalides. Latitude : -90 à 90, Longitude : -180 à 180."
+  },
+  "locationSavedAlert": {
+    "message": "Position enregistrée avec succès !"
+  },
+  "proRequiredTooltip": {
+    "message": "Nécessite ClockForClaude Pro"
+  },
+  "stripeEmailPlaceholder": {
+    "message": "Email Stripe pour activer"
+  },
+  "cityPlaceholder": {
+    "message": "Ex: Paris"
+  },
+  "autoIndicatorTooltipFirst": {
+    "message": "Injection automatique active (Premier message)"
+  },
+  "autoIndicatorTooltipAll": {
+    "message": "Injection automatique active (Chaque message)"
+  },
+  "quickPromptsTitle": {
+    "message": "Prompts Rapides"
+  },
+  "quickPromptsInfo": {
+    "message": "Max 5 prompts. Ces raccourcis s'affichent à côté du bouton Clock."
+  }
+}

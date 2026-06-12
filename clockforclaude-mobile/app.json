@@ -1,0 +1,25 @@
+{
+  "expo": {
+    "name": "ClockForClaude",
+    "slug": "clockforclaude-mobile",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.clockforclaude",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "ClockForClaude a besoin d'accéder à votre position pour récupérer les données météo locales en temps réel.",
+        "NSCalendarUsageDescription": "ClockForClaude a besoin de lire votre calendrier pour injecter vos rendez-vous à venir dans le contexte de Claude."
+      }
+    },
+    "android": {
+      "package": "com.clockforclaude",
+      "permissions": [
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.READ_CALENDAR"
+      ]
+    }
+  }
+}

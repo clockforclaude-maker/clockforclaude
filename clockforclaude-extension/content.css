@@ -1,0 +1,184 @@
+/* content.css - Styling for ClockForClaude elements injected into claude.ai */
+
+.c4c-badge-container {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  pointer-events: auto;
+}
+
+.c4c-btn-inject {
+  background: #fcfaf7 !important;
+  border: 1px solid #e5e0d8 !important;
+  color: #66635c !important;
+  border-radius: 20px !important;
+  padding: 4px 10px !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05) !important;
+  user-select: none !important;
+}
+
+.c4c-btn-inject:hover {
+  background: #fdf5f0 !important;
+  border-color: #e26a36 !important;
+  color: #191919 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(226, 106, 54, 0.12) !important;
+}
+
+.c4c-btn-inject:active {
+  transform: translateY(0) !important;
+}
+
+.c4c-btn-inject.c4c-success {
+  background: rgba(16, 185, 129, 0.2) !important;
+  border-color: rgba(16, 185, 129, 0.6) !important;
+  color: #10b981 !important;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.2) !important;
+}
+
+.c4c-btn-inject svg {
+  width: 12px;
+  height: 12px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.c4c-auto-indicator {
+  font-size: 9px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  background: linear-gradient(135deg, #e26a36, #cc521d) !important;
+  color: #fff !important;
+  padding: 2px 6px !important;
+  border-radius: 10px !important;
+  letter-spacing: 0.05em !important;
+  box-shadow: 0 0 8px rgba(226, 106, 54, 0.3) !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 3px !important;
+}
+
+.c4c-btn-inject.c4c-offpeak-active {
+  border-color: rgba(226, 106, 54, 0.4) !important;
+}
+
+.c4c-btn-inject.c4c-offpeak-active:hover {
+  background: rgba(226, 106, 54, 0.1) !important;
+  border-color: rgba(226, 106, 54, 0.6) !important;
+  box-shadow: 0 4px 12px rgba(226, 106, 54, 0.15) !important;
+}
+
+/* Tooltip style */
+.c4c-btn-inject[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: 50%;
+  right: calc(100% + 8px);
+  transform: translateY(-50%);
+  background: #ffffff;
+  color: #191919;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 10px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+  border: 1px solid #e5e0d8;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  z-index: 1000;
+}
+
+.c4c-btn-inject[data-tooltip]:hover::after {
+  opacity: 1;
+}
+
+/* Dark theme overrides for injected Claude.ai elements */
+.c4c-badge-container.c4c-dark .c4c-btn-inject {
+  background: #222222 !important;
+  border-color: #3d3d3d !important;
+  color: #b3b0aa !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3) !important;
+}
+
+.c4c-badge-container.c4c-dark .c4c-btn-inject:hover {
+  background: #2e2e2e !important;
+  border-color: #e26a36 !important;
+  color: #ffffff !important;
+}
+
+.c4c-badge-container.c4c-dark .c4c-btn-inject[data-tooltip]::after {
+  background: #222222 !important;
+  color: #ffffff !important;
+  border-color: #3d3d3d !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Quick Prompts Pills Styles */
+.c4c-pills-wrapper {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.c4c-pill {
+  background: #fcfaf7 !important;
+  border: 1px solid #e5e0d8 !important;
+  color: #66635c !important;
+  border-radius: 12px !important;
+  padding: 3px 8px !important;
+  font-size: 10px !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  white-space: nowrap !important;
+  user-select: none !important;
+  height: 20px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05) !important;
+}
+
+.c4c-pill:hover {
+  background: #fdf5f0 !important;
+  border-color: #e26a36 !important;
+  color: #e26a36 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 2px 6px rgba(226, 106, 54, 0.1) !important;
+}
+
+.c4c-pill:active {
+  transform: translateY(0) !important;
+}
+
+/* Dark theme overrides for Pills */
+.c4c-badge-container.c4c-dark .c4c-pill {
+  background: #222222 !important;
+  border-color: #3d3d3d !important;
+  color: #b3b0aa !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2) !important;
+}
+
+.c4c-badge-container.c4c-dark .c4c-pill:hover {
+  background: #2e2e2e !important;
+  border-color: #e26a36 !important;
+  color: #ffffff !important;
+}
+
+

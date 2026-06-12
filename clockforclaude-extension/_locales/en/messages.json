@@ -1,0 +1,134 @@
+{
+  "appName": {
+    "message": "ClockForClaude"
+  },
+  "appDesc": {
+    "message": "Give Claude a window to the world: local time, date, weather, and off-peak status directly inside claude.ai."
+  },
+  "settingsTitle": {
+    "message": "Configuration"
+  },
+  "injectModeLabel": {
+    "message": "Injection Mode"
+  },
+  "modeFirst": {
+    "message": "First message"
+  },
+  "modeAll": {
+    "message": "Every message"
+  },
+  "modeManual": {
+    "message": "Manual"
+  },
+  "weatherLabel": {
+    "message": "Local weather"
+  },
+  "weatherDesc": {
+    "message": "Adds temperature, wind, and sunset time."
+  },
+  "offpeakLabel": {
+    "message": "Network load"
+  },
+  "offpeakDesc": {
+    "message": "Informs Claude if server traffic is low or standard to optimize responses."
+  },
+  "locationTitle": {
+    "message": "Location (Weather)"
+  },
+  "locAuto": {
+    "message": "Automatic"
+  },
+  "locManual": {
+    "message": "Manual"
+  },
+  "locStatusInactive": {
+    "message": "Geolocation inactive"
+  },
+  "locStatusDetecting": {
+    "message": "Detecting..."
+  },
+  "locStatusSuccess": {
+    "message": "Geolocation successful!"
+  },
+  "locStatusSearching": {
+    "message": "Searching city..."
+  },
+  "locStatusFailed": {
+    "message": "Detection failed"
+  },
+  "btnDetect": {
+    "message": "Detect"
+  },
+  "labelCity": {
+    "message": "City"
+  },
+  "labelLat": {
+    "message": "Latitude"
+  },
+  "labelLon": {
+    "message": "Longitude"
+  },
+  "btnSaveManual": {
+    "message": "Save Position"
+  },
+  "previewTitle": {
+    "message": "Live Preview"
+  },
+  "previewLoading": {
+    "message": "Generating preview..."
+  },
+  "premiumBadge": {
+    "message": "⚡ PRO"
+  },
+  "premiumTitle": {
+    "message": "Premium Integrations"
+  },
+  "premiumDesc": {
+    "message": "Connect Google Calendar, Outlook, Todoist and Notion to make Claude your true temporal assistant."
+  },
+  "btnPremium": {
+    "message": "Upgrade to ClockForClaude Pro — $2.49 / month"
+  },
+  "footerMadeBy": {
+    "message": "Made with ❤️ by ClockForClaude"
+  },
+  "btnClock": {
+    "message": "🕒 Clock"
+  },
+  "btnInjected": {
+    "message": "Injected!"
+  },
+  "tooltipInject": {
+    "message": "Inject current temporal context"
+  },
+  "invalidEmailAlert": {
+    "message": "Please enter a valid email address."
+  },
+  "invalidCoordsAlert": {
+    "message": "Invalid coordinates. Latitude: -90 to 90, Longitude: -180 to 180."
+  },
+  "locationSavedAlert": {
+    "message": "Location successfully saved!"
+  },
+  "proRequiredTooltip": {
+    "message": "Requires ClockForClaude Pro"
+  },
+  "stripeEmailPlaceholder": {
+    "message": "Stripe email to activate"
+  },
+  "cityPlaceholder": {
+    "message": "E.g. Paris"
+  },
+  "autoIndicatorTooltipFirst": {
+    "message": "Automatic injection active (First message)"
+  },
+  "autoIndicatorTooltipAll": {
+    "message": "Automatic injection active (Every message)"
+  },
+  "quickPromptsTitle": {
+    "message": "Quick Prompts"
+  },
+  "quickPromptsInfo": {
+    "message": "Max 5 prompts. These shortcuts appear next to the Clock button."
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "appName": {
+    "message": "ClockForClaude"
+  },
+  "appDesc": {
+    "message": "Dale a Claude una ventana al mundo: hora local, fecha, clima y estado en tiempo real."
+  },
+  "settingsTitle": {
+    "message": "Configuración"
+  },
+  "injectModeLabel": {
+    "message": "Modo de inyección"
+  },
+  "modeFirst": {
+    "message": "1er Mensaje"
+  },
+  "modeAll": {
+    "message": "Cada mensaje"
+  },
+  "modeManual": {
+    "message": "Manual"
+  },
+  "weatherLabel": {
+    "message": "Tiempo local"
+  },
+  "weatherDesc": {
+    "message": "Añade temperatura, viento y hora de puesta del sol."
+  },
+  "locationTitle": {
+    "message": "Ubicación (Tiempo)"
+  },
+  "locAuto": {
+    "message": "Automático"
+  },
+  "locManual": {
+    "message": "Manual"
+  },
+  "locStatusInactive": {
+    "message": "Ubicación inactiva"
+  },
+  "locStatusDetecting": {
+    "message": "Detectando..."
+  },
+  "locStatusSuccess": {
+    "message": "¡Ubicación exitosa!"
+  },
+  "locStatusSearching": {
+    "message": "Buscando ciudad..."
+  },
+  "locStatusFailed": {
+    "message": "Detección fallida"
+  },
+  "btnDetect": {
+    "message": "Detectar"
+  },
+  "labelCity": {
+    "message": "Ciudad"
+  },
+  "labelLat": {
+    "message": "Latitud"
+  },
+  "labelLon": {
+    "message": "Longitud"
+  },
+  "btnSaveManual": {
+    "message": "Guardar Posición"
+  },
+  "previewTitle": {
+    "message": "Vista previa"
+  },
+  "previewLoading": {
+    "message": "Generando vista previa..."
+  },
+  "premiumBadge": {
+    "message": "⚡ PRO"
+  },
+  "premiumTitle": {
+    "message": "Integraciones Premium"
+  },
+  "premiumDesc": {
+    "message": "Conecta Google Calendar, Outlook, Todoist y Notion para que Claude sea tu verdadero asistente temporal."
+  },
+  "btnPremium": {
+    "message": "Mejorar a ClockForClaude Pro — $2.49 / mes"
+  },
+  "footerMadeBy": {
+    "message": "Hecho con ❤️ por ClockForClaude"
+  },
+  "btnClock": {
+    "message": "🕒 Clock"
+  },
+  "btnInjected": {
+    "message": "¡Inyectado!"
+  },
+  "tooltipInject": {
+    "message": "Inyectar contexto temporal actual"
+  },
+  "invalidEmailAlert": {
+    "message": "Por favor, ingresa un correo electrónico válido."
+  },
+  "invalidCoordsAlert": {
+    "message": "Coordenadas inválidas. Latitud: -90 a 90, Longitude: -180 a 180."
+  },
+  "locationSavedAlert": {
+    "message": "¡Ubicación guardada con éxito!"
+  },
+  "proRequiredTooltip": {
+    "message": "Requiere ClockForClaude Pro"
+  },
+  "stripeEmailPlaceholder": {
+    "message": "Correo Stripe para activar"
+  },
+  "cityPlaceholder": {
+    "message": "Ej: París"
+  },
+  "autoIndicatorTooltipFirst": {
+    "message": "Inyección automática activa (Primer mensaje)"
+  },
+  "autoIndicatorTooltipAll": {
+    "message": "Inyección automática activa (Cada mensaje)"
+  }
+}

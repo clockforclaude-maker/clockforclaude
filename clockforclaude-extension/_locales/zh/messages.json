@@ -1,0 +1,122 @@
+{
+  "appName": {
+    "message": "ClockForClaude"
+  },
+  "appDesc": {
+    "message": "给 Claude 一扇看世界的窗户：实时本地时间、日期、天气和状态。"
+  },
+  "settingsTitle": {
+    "message": "配置"
+  },
+  "injectModeLabel": {
+    "message": "注入模式"
+  },
+  "modeFirst": {
+    "message": "首次消息"
+  },
+  "modeAll": {
+    "message": "每条消息"
+  },
+  "modeManual": {
+    "message": "手动"
+  },
+  "weatherLabel": {
+    "message": "本地天气"
+  },
+  "weatherDesc": {
+    "message": "添加温度、风速和日落时间。"
+  },
+  "locationTitle": {
+    "message": "位置（天气）"
+  },
+  "locAuto": {
+    "message": "自动定位"
+  },
+  "locManual": {
+    "message": "手动定位"
+  },
+  "locStatusInactive": {
+    "message": "定位未开启"
+  },
+  "locStatusDetecting": {
+    "message": "正在检测..."
+  },
+  "locStatusSuccess": {
+    "message": "定位成功！"
+  },
+  "locStatusSearching": {
+    "message": "正在搜索城市..."
+  },
+  "locStatusFailed": {
+    "message": "定位失败"
+  },
+  "btnDetect": {
+    "message": "检测"
+  },
+  "labelCity": {
+    "message": "城市"
+  },
+  "labelLat": {
+    "message": "纬度"
+  },
+  "labelLon": {
+    "message": "经度"
+  },
+  "btnSaveManual": {
+    "message": "保存位置"
+  },
+  "previewTitle": {
+    "message": "实时预览"
+  },
+  "previewLoading": {
+    "message": "正在生成预览..."
+  },
+  "premiumBadge": {
+    "message": "⚡ PRO"
+  },
+  "premiumTitle": {
+    "message": "高级版集成"
+  },
+  "premiumDesc": {
+    "message": "连接 Google 日历、Outlook、Todoist 和 Notion，使 Claude 成为您真正的日程助手。"
+  },
+  "btnPremium": {
+    "message": "升级至 ClockForClaude 专业版 — 每月 $2.49"
+  },
+  "footerMadeBy": {
+    "message": "ClockForClaude 用 ❤️ 制作"
+  },
+  "btnClock": {
+    "message": "🕒 Clock"
+  },
+  "btnInjected": {
+    "message": "已注入！"
+  },
+  "tooltipInject": {
+    "message": "注入当前时间上下文"
+  },
+  "invalidEmailAlert": {
+    "message": "请输入有效的电子邮件地址。"
+  },
+  "invalidCoordsAlert": {
+    "message": "坐标无效。纬度：-90 至 90，经度：-180 至 180。"
+  },
+  "locationSavedAlert": {
+    "message": "位置保存成功！"
+  },
+  "proRequiredTooltip": {
+    "message": "需要订阅 ClockForClaude 专业版"
+  },
+  "stripeEmailPlaceholder": {
+    "message": "用于激活的 Stripe 邮箱"
+  },
+  "cityPlaceholder": {
+    "message": "例如：巴黎"
+  },
+  "autoIndicatorTooltipFirst": {
+    "message": "自动注入激活（首次消息）"
+  },
+  "autoIndicatorTooltipAll": {
+    "message": "自动注入激活（每条消息）"
+  }
+}
