@@ -89,69 +89,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   const btnActivatePremium = document.getElementById('btn-activate-premium');
   const btnDeactivatePremium = document.getElementById('btn-deactivate-premium');
 
-  // Quick Prompts Elements
-  const quickPromptsList = document.getElementById('quick-prompts-list');
-  const newPromptInput = document.getElementById('new-prompt-input');
-  const btnAddPrompt = document.getElementById('btn-add-prompt');
-
   // Load Settings
   const settings = await chrome.storage.local.get();
-
-  // Quick Prompts Init
-  let quickPrompts = settings.quick_prompts;
-  if (!quickPrompts) {
-    const isFr = uiLang.startsWith('fr');
-    quickPrompts = isFr ? [
-      "Résume ce texte",
-      "Explique simplement",
-      "Améliore le style"
-    ] : [
-      "Summarize this",
-      "Explain simply",
-      "Improve style"
-    ];
-    await chrome.storage.local.set({ quick_prompts: quickPrompts });
-  }
-
-  function renderQuickPrompts(isPremium) {
-    quickPromptsList.innerHTML = '';
-    
-    if (quickPrompts.length === 0) {
-      const emptyMsg = document.createElement('div');
-      emptyMsg.style.fontSize = '11px';
-      emptyMsg.style.color = 'var(--text-muted)';
-      emptyMsg.style.textAlign = 'center';
-      emptyMsg.style.padding = '8px';
-      emptyMsg.textContent = uiLang.startsWith('fr') ? "Aucun prompt configuré." : "No prompts configured.";
-      quickPromptsList.appendChild(emptyMsg);
-      return;
-    }
-
-    quickPrompts.forEach((prompt, index) => {
-      const item = document.createElement('div');
-      item.className = 'quick-prompt-item';
-      
-      const span = document.createElement('span');
-      span.textContent = prompt;
-      span.title = prompt;
-      item.appendChild(span);
-      
-      if (isPremium) {
-        const delBtn = document.createElement('button');
-        delBtn.className = 'btn-delete-prompt';
-        delBtn.textContent = '×';
-        delBtn.title = uiLang.startsWith('fr') ? "Supprimer" : "Delete";
-        delBtn.addEventListener('click', async () => {
-          quickPrompts.splice(index, 1);
-          await chrome.storage.local.set({ quick_prompts: quickPrompts });
-          renderQuickPrompts(true);
-        });
-        item.appendChild(delBtn);
-      }
-      
-      quickPromptsList.appendChild(item);
-    });
-  }
 
   // Load and Apply Theme
   const themeToggleCheckbox = document.getElementById('theme-toggle-checkbox');
@@ -211,32 +150,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     updatePremiumUI(false);
   });
 
-  btnAddPrompt.addEventListener('click', async () => {
-    const currentSettings = await chrome.storage.local.get();
-    if (currentSettings.premium_status !== 'premium') {
-      alert(chrome.i18n.getMessage('proRequiredTooltip') || "Requires ClockForClaude Pro");
-      return;
-    }
-    
-    if (quickPrompts.length >= 5) {
-      alert(uiLang.startsWith('fr') ? "Maximum 5 prompts autorisés." : "Maximum 5 prompts allowed.");
-      return;
-    }
 
-    const text = newPromptInput.value.trim();
-    if (!text) return;
-    
-    quickPrompts.push(text);
-    await chrome.storage.local.set({ quick_prompts: quickPrompts });
-    newPromptInput.value = '';
-    renderQuickPrompts(true);
-  });
-
-  newPromptInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-      btnAddPrompt.click();
-    }
-  });
 
   if (themeToggleCheckbox) {
     themeToggleCheckbox.addEventListener('change', async () => {
@@ -579,18 +493,6 @@ document.addEventListener('DOMContentLoaded', async () => {
       document.getElementById('mode-manual').checked = true;
       chrome.storage.local.set({ autoInjectMode: 'manual' });
     }
-
-    // Update Quick Prompts panel controls based on Premium status
-    if (isPremium) {
-      newPromptInput.disabled = false;
-      btnAddPrompt.disabled = false;
-      newPromptInput.placeholder = uiLang.startsWith('fr') ? "Nouveau prompt..." : "Add a prompt...";
-    } else {
-      newPromptInput.disabled = true;
-      btnAddPrompt.disabled = true;
-      newPromptInput.placeholder = uiLang.startsWith('fr') ? "Activez Pro pour personnaliser" : "Activate Pro to customize";
-    }
-    renderQuickPrompts(isPremium);
   }
 
   async function refreshWeather() {

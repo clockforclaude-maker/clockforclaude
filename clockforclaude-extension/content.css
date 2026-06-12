@@ -129,56 +129,5 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
 }
 
-/* Quick Prompts Pills Styles */
-.c4c-pills-wrapper {
-  display: flex;
-  gap: 4px;
-  align-items: center;
-}
-
-.c4c-pill {
-  background: #fcfaf7 !important;
-  border: 1px solid #e5e0d8 !important;
-  color: #66635c !important;
-  border-radius: 12px !important;
-  padding: 3px 8px !important;
-  font-size: 10px !important;
-  font-weight: 500 !important;
-  cursor: pointer !important;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
-  white-space: nowrap !important;
-  user-select: none !important;
-  height: 20px !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.05) !important;
-}
-
-.c4c-pill:hover {
-  background: #fdf5f0 !important;
-  border-color: #e26a36 !important;
-  color: #e26a36 !important;
-  transform: translateY(-1px) !important;
-  box-shadow: 0 2px 6px rgba(226, 106, 54, 0.1) !important;
-}
-
-.c4c-pill:active {
-  transform: translateY(0) !important;
-}
-
-/* Dark theme overrides for Pills */
-.c4c-badge-container.c4c-dark .c4c-pill {
-  background: #222222 !important;
-  border-color: #3d3d3d !important;
-  color: #b3b0aa !important;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.2) !important;
-}
-
-.c4c-badge-container.c4c-dark .c4c-pill:hover {
-  background: #2e2e2e !important;
-  border-color: #e26a36 !important;
-  color: #ffffff !important;
-}
 
 

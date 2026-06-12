@@ -50,13 +50,13 @@ French
 
 ### Screenshot Notes
 - Capture 1 : L'interface du popup de configuration montrant les réglages, le mode d'injection et l'aperçu du bloc temporel.
-- Capture 2 : Le site claude.ai avec le bouton ClockForClaude flottant et le bloc d'horodatage inséré en début de prompt.
+- Capture 2 : Le site claude.ai avec le bouton ClockForClaude flottant et le bloc d'horodatage inséré en début de message.
 
 ## Permissions Justification
 
 | Permission | Type | Justification |
 |------------|------|---------------|
-| `storage` | permissions | Permet de sauvegarder localement les réglages de l'utilisateur (mode d'injection, préférences d'affichage) ainsi que le cache de la météo pour éviter des appels API superflus. |
+| `storage` | permissions | Permet de sauvegarder localement les réglages de l'utilisateur ainsi que le cache de la météo pour éviter des appels API superflus. |
 | `alarms` | permissions | Utilisé pour programmer des nettoyages périodiques du cache de météo afin d'éviter la saturation de l'espace de stockage. |
 | `https://api.open-meteo.com/*` | host_permissions | Nécessaire pour communiquer avec l'API Open-Meteo afin de récupérer la météo locale (température, vent, coucher de soleil) correspondant à la position géographique configurée. |
 

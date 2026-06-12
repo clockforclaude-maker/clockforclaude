@@ -125,12 +125,6 @@
   "autoIndicatorTooltipAll": {
     "message": "Injection automatique active (Chaque message)"
   },
-  "quickPromptsTitle": {
-    "message": "Prompts Rapides"
-  },
-  "quickPromptsInfo": {
-    "message": "Max 5 prompts. Ces raccourcis s'affichent à côté du bouton Clock."
-  },
   "helpTitle": {
     "message": "Aide & Résolution des problèmes"
   },

@@ -653,51 +653,7 @@ input:checked + .switch-slider:before {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Quick Prompts Styles */
-.quick-prompts-list {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  margin-bottom: 4px;
-}
 
-.quick-prompt-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: var(--bg-input);
-  border: 1px solid var(--border-color);
-  border-radius: 6px;
-  padding: 6px 10px;
-  font-size: 11px;
-  color: var(--text-primary);
-  transition: var(--transition-fast);
-  animation: fadeIn 0.2s ease-out;
-}
-
-.quick-prompt-item span {
-  flex: 1;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  padding-right: 8px;
-}
-
-.quick-prompt-item .btn-delete-prompt {
-  background: none;
-  border: none;
-  color: var(--text-muted);
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 12px;
-  padding: 0 4px;
-  line-height: 1;
-  transition: var(--transition-fast);
-}
-
-.quick-prompt-item .btn-delete-prompt:hover {
-  color: var(--error-color);
-}
 
 /* Help Section Styles */
 .help-section {

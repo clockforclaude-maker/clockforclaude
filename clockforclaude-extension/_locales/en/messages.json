@@ -125,12 +125,6 @@
   "autoIndicatorTooltipAll": {
     "message": "Automatic injection active (Every message)"
   },
-  "quickPromptsTitle": {
-    "message": "Quick Prompts"
-  },
-  "quickPromptsInfo": {
-    "message": "Max 5 prompts. These shortcuts appear next to the Clock button."
-  },
   "helpTitle": {
     "message": "Help & Troubleshooting"
   },

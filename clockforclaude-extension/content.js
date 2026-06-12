@@ -114,7 +114,7 @@ function setupInjections() {
   if (!editor) return;
 
   // Add right padding so text doesn't flow under our floating buttons
-  editor.style.setProperty('padding-right', '145px', 'important');
+  editor.style.setProperty('padding-right', '110px', 'important');
 
   // Check for auto-inject on empty focused inputs (handles SPA transitions where focus is retained)
   checkPolledAutoInject(editor);
@@ -132,7 +132,6 @@ function setupInjections() {
   if (existingBadge) {
     const isDark = document.documentElement.classList.contains('dark') || document.body.classList.contains('dark');
     existingBadge.classList.toggle('c4c-dark', isDark);
-    updatePills(existingBadge, editor);
     return;
   }
 
@@ -198,7 +197,6 @@ function setupInjections() {
 
   badgeContainer.appendChild(btnInject);
   container.appendChild(badgeContainer);
-  updatePills(badgeContainer, editor);
 
   // Setup auto-inject on focus
   editor.addEventListener('focus', handleEditorFocus);
@@ -312,57 +310,6 @@ function replaceExistingTimestamp(editor, newTimestamp) {
 async function handleEditorFocus(e) {
   const editor = e.target;
   checkPolledAutoInject(editor);
-}
-
-async function updatePills(badgeContainer, editor) {
-  let pillsWrapper = badgeContainer.querySelector('.c4c-pills-wrapper');
-  
-  const settings = await getSettings();
-  const isPremium = settings.premium_status === 'premium';
-  
-  if (!isPremium || !settings.enabled) {
-    if (pillsWrapper) pillsWrapper.remove();
-    editor.style.setProperty('padding-right', '145px', 'important');
-    return;
-  }
-
-  if (!pillsWrapper) {
-    pillsWrapper = document.createElement('div');
-    pillsWrapper.className = 'c4c-pills-wrapper';
-    pillsWrapper.style.display = 'flex';
-    pillsWrapper.style.gap = '4px';
-    pillsWrapper.style.alignItems = 'center';
-    pillsWrapper.style.marginRight = '6px';
-    badgeContainer.insertBefore(pillsWrapper, badgeContainer.querySelector('.c4c-btn-inject'));
-  }
-
-  const quickPrompts = settings.quick_prompts || [];
-  const currentPromptTexts = Array.from(pillsWrapper.querySelectorAll('.c4c-pill')).map(p => p.textContent);
-  const match = currentPromptTexts.length === quickPrompts.length && currentPromptTexts.every((val, i) => val === quickPrompts[i]);
-  
-  if (match) return;
-
-  pillsWrapper.innerHTML = '';
-  quickPrompts.forEach(promptText => {
-    const pill = document.createElement('button');
-    pill.className = 'c4c-pill';
-    pill.textContent = promptText;
-    pill.title = promptText;
-    pill.addEventListener('click', (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      injectTextAtCursor(editor, promptText);
-    });
-    pillsWrapper.appendChild(pill);
-  });
-
-  const estimatedWidth = 145 + (quickPrompts.length * 85);
-  editor.style.setProperty('padding-right', `${estimatedWidth}px`, 'important');
-}
-
-function injectTextAtCursor(editor, text) {
-  editor.focus();
-  document.execCommand('insertText', false, text);
 }
 
 // Run polling to support SPA dynamic rendering
