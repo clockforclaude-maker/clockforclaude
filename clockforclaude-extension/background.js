@@ -50,6 +50,25 @@ const CONTEXT_STRINGS = {
   sv: { timestampLabel: "Tidsstämpel: ", weatherLabel: "Väder: ", unknownConditions: "Okända förhållanden", weatherUnavailable: "ej tillgänglig", weatherPrefix: "Väder         : ", windPrefix: "Vind          : ", sunsetPrefix: "Solnedgång    : ", posNotDetected: "position detekterades inte", windUnit: "m/s", humidityLabel: "Luftfuktighet", localeCode: "sv-SE" }
 };
 
+const PERIOD_STRINGS = {
+  fr: { morning: "Matin", afternoon: "Après-midi", evening: "Soirée", night: "Nuit" },
+  en: { morning: "Morning", afternoon: "Afternoon", evening: "Evening", night: "Night" },
+  es: { morning: "Mañana", afternoon: "Tarde", evening: "Tarde/Noche", night: "Noche" },
+  it: { morning: "Mattina", afternoon: "Pomeriggio", evening: "Sera", night: "Notte" },
+  de: { morning: "Morgen", afternoon: "Nachmittag", evening: "Abend", night: "Nacht" },
+  pt: { morning: "Manhã", afternoon: "Tarde", evening: "Noite", night: "Madrugada" },
+  zh: { morning: "早上", afternoon: "下午", evening: "晚上", night: "深夜" },
+  ja: { morning: "朝", afternoon: "昼", evening: "夜", night: "深夜" },
+  ar: { morning: "صباحاً", afternoon: "بعد الظهر", evening: "مساءً", night: "ليلاً" },
+  ru: { morning: "Утро", afternoon: "День", evening: "Вечер", night: "Ночь" },
+  nl: { morning: "Ochtend", afternoon: "Middag", evening: "Avond", night: "Nacht" },
+  ko: { morning: "아침", afternoon: "오후", evening: "저녁", night: "밤" },
+  hi: { morning: "सुबह", afternoon: "दोपहर", evening: "शाम", night: "रात" },
+  tr: { morning: "Sabah", afternoon: "Öğleden Sonra", evening: "Akşam", night: "Gece" },
+  pl: { morning: "Rano", afternoon: "Popołudnie", evening: "Wieczór", night: "Noc" },
+  sv: { morning: "Morgon", afternoon: "Eftermiddag", evening: "Kväll", night: "Natt" }
+};
+
 const WEATHER_CATEGORIES = {
   fr: ['Ciel dégagé', 'Nuageux', 'Brouillard', 'Pluie', 'Neige', 'Orage'],
   en: ['Clear sky', 'Cloudy', 'Fog', 'Rain', 'Snow', 'Thunderstorm'],
@@ -179,10 +198,11 @@ function getDatetimeString(tz) {
   else if (month >= 9 && month <= 11) season = lang === 'fr' ? 'Automne' : 'Autumn';
   
   const hour = parseInt(time.split(':')[0]);
-  let period = lang === 'fr' ? 'Nuit' : 'Night';
-  if (hour >= 6 && hour < 12) period = lang === 'fr' ? 'Matin' : 'Morning';
-  else if (hour >= 12 && hour < 18) period = lang === 'fr' ? 'Après-midi' : 'Afternoon';
-  else if (hour >= 18 && hour < 22) period = lang === 'fr' ? 'Soirée' : 'Evening';
+  const periods = PERIOD_STRINGS[lang] || PERIOD_STRINGS['en'];
+  let period = periods.night;
+  if (hour >= 6 && hour < 12) period = periods.morning;
+  else if (hour >= 12 && hour < 18) period = periods.afternoon;
+  else if (hour >= 18 && hour < 22) period = periods.evening;
   
   const hourLabel = lang === 'fr' ? 'Heure locale  : ' : 'Local Time    : ';
   const dateLabel = lang === 'fr' ? 'Date          : ' : 'Date          : ';
@@ -215,7 +235,14 @@ async function getFullContext() {
   const date = now.toLocaleDateString(strings.localeCode, { ...opts, day: 'numeric', month: 'long', year: 'numeric' });
   const formattedDay = day.charAt(0).toUpperCase() + day.slice(1);
   
-  let contextLine = `[${strings.timestampLabel}${formattedDay} ${date}, ${time}`;
+  const hourVal = parseInt(time.split(':')[0]);
+  const periodsVal = PERIOD_STRINGS[lang] || PERIOD_STRINGS['en'];
+  let periodVal = periodsVal.night;
+  if (hourVal >= 6 && hourVal < 12) periodVal = periodsVal.morning;
+  else if (hourVal >= 12 && hourVal < 18) periodVal = periodsVal.afternoon;
+  else if (hourVal >= 18 && hourVal < 22) periodVal = periodsVal.evening;
+
+  let contextLine = `[${strings.timestampLabel}${formattedDay} ${date}, ${time} (${periodVal})`;
 
   // Add weather if enabled
   if (settings.includeWeather !== false) {
