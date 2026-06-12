@@ -133,5 +133,11 @@
   },
   "helpA2": {
     "message": "Abbonarsi su Stripe, inserire l'email di fatturazione nella casella di attivazione e cliccare su 'Attiva'."
+  },
+  "darkModeLabel": {
+    "message": "Tema scuro"
+  },
+  "darkModeDesc": {
+    "message": "Attiva il tema scuro per l'estensione e Claude.ai."
   }
 }

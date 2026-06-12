@@ -133,5 +133,11 @@
   },
   "helpA2": {
     "message": "Suscríbase en Stripe, ingrese su correo de facturación en la casilla de activación y haga clic en 'Activer'."
+  },
+  "darkModeLabel": {
+    "message": "Modo oscuro"
+  },
+  "darkModeDesc": {
+    "message": "Habilita el tema oscuro en la extensión y Claude.ai."
   }
 }

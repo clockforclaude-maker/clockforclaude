@@ -133,5 +133,11 @@
   },
   "helpA2": {
     "message": "通过 Stripe 订阅，然后在激活框中输入您的账单邮箱并点击“激活”。"
+  },
+  "darkModeLabel": {
+    "message": "深色模式"
+  },
+  "darkModeDesc": {
+    "message": "启用插件和 Claude.ai 的深色主题。"
   }
 }

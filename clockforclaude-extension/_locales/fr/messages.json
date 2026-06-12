@@ -145,5 +145,11 @@
   },
   "helpA2": {
     "message": "Abonnez-vous sur Stripe, puis saisissez votre e-mail de facturation dans la case d'activation et cliquez sur 'Activer'."
+  },
+  "darkModeLabel": {
+    "message": "Mode sombre"
+  },
+  "darkModeDesc": {
+    "message": "Active le thème sombre sur l'extension et Claude.ai."
   }
 }

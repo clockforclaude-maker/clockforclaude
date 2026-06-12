@@ -133,5 +133,11 @@
   },
   "helpA2": {
     "message": "Inscreva-se via Stripe, digite seu e-mail de faturamento no campo de ativação e clique em 'Ativar'."
+  },
+  "darkModeLabel": {
+    "message": "Modo escuro"
+  },
+  "darkModeDesc": {
+    "message": "Ativa o tema escuro na extensão e no Claude.ai."
   }
 }

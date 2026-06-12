@@ -145,5 +145,11 @@
   },
   "helpA2": {
     "message": "Subscribe via Stripe, then type your billing email address into the activation box and click 'Activate'."
+  },
+  "darkModeLabel": {
+    "message": "Dark Theme"
+  },
+  "darkModeDesc": {
+    "message": "Enables dark theme for the extension and Claude.ai."
   }
 }

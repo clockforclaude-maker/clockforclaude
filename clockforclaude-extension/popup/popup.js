@@ -154,14 +154,14 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   // Load and Apply Theme
-  const themeToggleBtn = document.getElementById('theme-toggle-btn');
+  const themeToggleCheckbox = document.getElementById('theme-toggle-checkbox');
   const currentTheme = settings.theme || 'light';
   if (currentTheme === 'dark') {
     document.body.classList.add('dark-theme');
-    if (themeToggleBtn) themeToggleBtn.textContent = '☀️';
+    if (themeToggleCheckbox) themeToggleCheckbox.checked = true;
   } else {
     document.body.classList.remove('dark-theme');
-    if (themeToggleBtn) themeToggleBtn.textContent = '🌙';
+    if (themeToggleCheckbox) themeToggleCheckbox.checked = false;
   }
 
   // Populate UI from Settings
@@ -238,17 +238,15 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
   });
 
-  if (themeToggleBtn) {
-    themeToggleBtn.addEventListener('click', async () => {
-      const isDark = document.body.classList.contains('dark-theme');
+  if (themeToggleCheckbox) {
+    themeToggleCheckbox.addEventListener('change', async () => {
+      const isDark = themeToggleCheckbox.checked;
       if (isDark) {
-        document.body.classList.remove('dark-theme');
-        themeToggleBtn.textContent = '🌙';
-        await chrome.storage.local.set({ theme: 'light' });
-      } else {
         document.body.classList.add('dark-theme');
-        themeToggleBtn.textContent = '☀️';
         await chrome.storage.local.set({ theme: 'dark' });
+      } else {
+        document.body.classList.remove('dark-theme');
+        await chrome.storage.local.set({ theme: 'light' });
       }
     });
   }

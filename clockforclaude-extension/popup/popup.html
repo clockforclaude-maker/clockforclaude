@@ -20,8 +20,7 @@
         <span class="app-title">ClockForClaude <span class="badge">v1.0</span></span>
       </div>
       <div class="header-actions">
-        <button id="theme-toggle-btn" class="theme-btn" title="Toggle Dark/Light Mode">🌙</button>
-        <label class="switch-container main-switch">
+        <label class="switch-container main-switch" title="Activer / Désactiver l'extension">
           <input type="checkbox" id="extension-enabled" checked>
           <span class="switch-slider"></span>
         </label>
@@ -61,6 +60,17 @@
           </div>
           <label class="switch-container">
             <input type="checkbox" id="include-weather" checked>
+            <span class="switch-slider"></span>
+          </label>
+        </div>
+
+        <div class="toggle-row">
+          <div class="toggle-text">
+            <h4 data-i18n="darkModeLabel">Mode sombre</h4>
+            <p data-i18n="darkModeDesc">Active le thème sombre sur l'extension et Claude.ai.</p>
+          </div>
+          <label class="switch-container">
+            <input type="checkbox" id="theme-toggle-checkbox">
             <span class="switch-slider"></span>
           </label>
         </div>

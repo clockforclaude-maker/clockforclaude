@@ -10,6 +10,34 @@ const DEFAULT_SETTINGS = {
   autoLocation: { latitude: null, longitude: null, city: "" }
 };
 
+// Automatically detect location based on IP address
+async function autoDetectIPLocation() {
+  try {
+    const settings = await chrome.storage.local.get();
+    if (settings.autoLocation && settings.autoLocation.latitude && settings.autoLocation.longitude) {
+      return settings.autoLocation;
+    }
+    const lang = getExtensionLanguage();
+    const geoUrl = `https://api-bdc.io/data/reverse-geocode-client?localityLanguage=${lang}`;
+    const res = await fetch(geoUrl);
+    if (res.ok) {
+      const data = await res.json();
+      const lat = parseFloat(data.latitude);
+      const lon = parseFloat(data.longitude);
+      const city = data.city || data.locality || data.principalSubdivision || "Position détectée";
+      if (!isNaN(lat) && !isNaN(lon)) {
+        const autoLocData = { latitude: lat, longitude: lon, city: city };
+        await chrome.storage.local.set({ autoLocation: autoLocData });
+        console.log(`ClockForClaude: Auto-detected IP location: ${city} (${lat}, ${lon})`);
+        return autoLocData;
+      }
+    }
+  } catch (err) {
+    console.error("ClockForClaude: Failed to auto-detect location by IP:", err);
+  }
+  return null;
+}
+
 // Initialize settings on install
 chrome.runtime.onInstalled.addListener(async () => {
   const settings = await chrome.storage.local.get();
@@ -29,7 +57,18 @@ chrome.runtime.onInstalled.addListener(async () => {
     await chrome.storage.local.remove(keysToRemove);
   }
   console.log("ClockForClaude extension initialized and weather cache cleared.");
+  
+  // Proactively run IP geoloc
+  await autoDetectIPLocation();
 });
+
+// Run IP geoloc on startup
+chrome.runtime.onStartup.addListener(async () => {
+  await autoDetectIPLocation();
+});
+
+// Run on background load
+autoDetectIPLocation();
 
 const CONTEXT_STRINGS = {
   fr: { timestampLabel: "Horodatage : ", weatherLabel: "Météo : ", unknownConditions: "Conditions inconnues", weatherUnavailable: "indisponible", weatherPrefix: "Météo         : ", windPrefix: "Vent          : ", sunsetPrefix: "Coucher soleil: ", posNotDetected: "position non détectée", windUnit: "km/h", humidityLabel: "Humidité", localeCode: "fr-FR" },
@@ -246,7 +285,11 @@ async function getFullContext() {
 
   // Add weather if enabled
   if (settings.includeWeather !== false) {
-    const activeLoc = settings.locationMode === 'auto' ? settings.autoLocation : settings.manualLocation;
+    let activeLoc = settings.locationMode === 'auto' ? settings.autoLocation : settings.manualLocation;
+    if (settings.locationMode === 'auto' && (!activeLoc || !activeLoc.latitude || !activeLoc.longitude)) {
+      autoDetectIPLocation(); // fire-and-forget background resolution
+      activeLoc = settings.manualLocation || { latitude: 48.8566, longitude: 2.3522, city: "Paris" };
+    }
     const lat = activeLoc?.latitude;
     const lon = activeLoc?.longitude;
     const city = activeLoc?.city;
@@ -302,7 +345,13 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     // Force a fresh weather fetch
     chrome.storage.local.get()
       .then(async (settings) => {
-        const activeLoc = settings.locationMode === 'auto' ? settings.autoLocation : settings.manualLocation;
+        let activeLoc = settings.locationMode === 'auto' ? settings.autoLocation : settings.manualLocation;
+        if (settings.locationMode === 'auto' && (!activeLoc || !activeLoc.latitude || !activeLoc.longitude)) {
+          const detected = await autoDetectIPLocation();
+          if (detected) {
+            activeLoc = detected;
+          }
+        }
         const lat = activeLoc?.latitude;
         const lon = activeLoc?.longitude;
         const city = activeLoc?.city;

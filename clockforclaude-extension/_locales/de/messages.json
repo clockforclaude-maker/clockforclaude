@@ -133,5 +133,11 @@
   },
   "helpA2": {
     "message": "Abonnieren Sie über Stripe, geben Sie Ihre Abrechnungs-E-Mail-Adresse in das Aktivierungsfeld ein und klicken Sie auf 'Aktivieren'."
+  },
+  "darkModeLabel": {
+    "message": "Dunkles Design"
+  },
+  "darkModeDesc": {
+    "message": "Aktiviert das dunkle Design für die Erweiterung und Claude.ai."
   }
 }
