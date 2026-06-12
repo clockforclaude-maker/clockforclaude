@@ -77,7 +77,7 @@ Installez l'extension directement depuis le [Chrome Web Store (Lien à venir)](#
 
 ### 🌟 Características Clave
 * **Inyección de Contexto en Tiempo Real:** Añade la hora exacta, fecha y clima local antes de tus prompts.
-* **Mensajes Rápidos Personalizados:** Guarda hasta 5 plantillas de prompts personalizados (función Pro) para insertarlos al instante.
+* **Mensajes Rápidos Personizados:** Guarda hasta 5 plantillas de prompts personalizados (función Pro) para insertarlos al instante.
 * **Integración del Calendario:** Recupera e inyecta tus próximos eventos del calendario (función Pro).
 * **Modo Oscuro de Claude:** Habilita fácilmente el modo oscuro en la interfaz web de Claude.ai.
 
@@ -223,12 +223,12 @@ Instale a extensão diretamente da [Chrome Web Store (Link em breve)](#).
 ---
 
 <details>
-<summary><b>ja 日本語 (Japanese)</b></summary>
+<summary><b>🇯🇵 日本語 (Japanese)</b></summary>
 
 ### 🌟 主な機能
 * **リアルタイムコンテキスト注入：** 正確な時間、日付、現地の天気をプロンプトの前に自動挿入します。
 * **カスタムクイックプロンプト：** 最大5つのカスタムプロンプトテンプレートを保存し（Pro機能），ボタンから瞬時に挿入できます。
-* **カレンダー連携:** 予定されているカレンダーのイベントを自動取得して注入します（Pro機能）。
+* **カレンダー連携:** 予定されているカレンダーのイベントを自动取得して注入します（Pro機能）。
 * **Claude ダークモード：** Claude.ai ウェブインターフェースにダークモードを適用します。
 
 ### ⚡ フリープラン vs PROプラン
@@ -253,7 +253,7 @@ Instale a extensão diretamente da [Chrome Web Store (Link em breve)](#).
 ---
 
 <details>
-<summary><b>ar العربية (Arabic)</b></summary>
+<summary><b>🇸🇦 العربية (Arabic)</b></summary>
 
 ### 🌟 الميزات الرئيسية
 * **حقن السياق الفوري:** إضافة الوقت والتاريخ الدقيق وحالة الطقس المحلي قبل أوامرك تلقائيًا.
@@ -283,7 +283,7 @@ Instale a extensão diretamente da [Chrome Web Store (Link em breve)](#).
 ---
 
 <details>
-<summary><b>ru Русский (Russian)</b></summary>
+<summary><b>🇷🇺 Русский (Russian)</b></summary>
 
 ### 🌟 Ключевые функции
 * **Внедрение временного контекста в реальном времени:** Автоматически добавляет текущее время, дату и локальную погоду перед вашими запросами.
@@ -307,13 +307,13 @@ Instale a extensão diretamente da [Chrome Web Store (Link em breve)](#).
 1. Откройте [claude.ai](https://claude.ai) в браузере.
 2. Нажмите кнопку **🕒 Clock** для ручного ввода времени и погоды в поле ввода.
 3. В версии **Pro** контекст может внедряться автоматически при каждом запросе.
-4. Нажмите на любую кнопку **Быстрого запроса** для мгновенной вставки шаблона.
+4. Нажмите на эту кнопку **Быстрого запроса** для мгновенной вставки шаблона.
 </details>
 
 ---
 
 <details>
-<summary><b>nl Nederlands (Dutch)</b></summary>
+<summary><b>🇳🇱 Nederlands (Dutch)</b></summary>
 
 ### 🌟 Belangrijkste functionaliteiten
 * **Realtime Context-injectie:** Voegt automatisch de exacte tijd, datum en het lokale weer toe voor uw prompts.
@@ -331,7 +331,7 @@ Instale a extensão diretamente da [Chrome Web Store (Link em breve)](#).
   * **Agenda & Weer:** Lokale weergegevens en aankomende agenda-afspraken worden automatisch gesynchroniseerd.
 
 ### 💻 Chrome-extensie installeren
-Installer de extensie rechtstreeks vanuit de [Chrome Web Store (Link volgt binnenkort)](#).
+Installeer de extensie rechtstreeks vanuit de [Chrome Web Store (Link volgt binnenkort)](#).
 
 ### 💡 Hoe te gebruiken
 1. Open [claude.ai](https://claude.ai) in de browser.
@@ -343,7 +343,7 @@ Installer de extensie rechtstreeks vanuit de [Chrome Web Store (Link volgt binne
 ---
 
 <details>
-<summary><b>ko 한국어 (Korean)</b></summary>
+<summary><b>🇰🇷 한국어 (Korean)</b></summary>
 
 ### 🌟 핵심 기능
 * **실시간 컨텍스트 주입:** 프롬프트 입력 전 현재 날짜, 정확한 시간 및 로컬 날씨를 자동으로 추가합니다.
@@ -373,10 +373,10 @@ Installer de extensie rechtstreeks vanuit de [Chrome Web Store (Link volgt binne
 ---
 
 <details>
-<summary><b>hi हिन्दी (Hindi)</b></summary>
+<summary><b>🇮🇳 हिन्दी (Hindi)</b></summary>
 
 ### 🌟 मुख्य विशेषताएं
-* **रीअल-टाइम संदर्भ इंजेक्शन:** आपके प्रॉम्प्ट से पहले सटीक समय, तिथि और स्थानीय मौसम को जोड़ता.
+* **रीअल-टाइम संदर्भ इंजेक्शन:** आपके प्रॉम्प्ट से पहले सटीक समय, तिथि और स्थानीय मौसम को जोड़ता है।
 * **कस्टम त्वरित संकेत (प्रॉम्प्ट):** 5 कस्टम प्रॉम्प्ट टेम्पलेट्स तक सहेजें (प्रो फीचर) और उन्हें एक क्लिक में इनपुट बॉक्स में डालें।
 * **कैलेंडर एकीकरण:** आपके आने वाले कैलेंडर इवेंट्स को स्वचालित रूप से प्राप्त और इंजेक्ट करता है (प्रो फीचर)।
 * **क्लॉड डार्क मोड:** क्लॉड.एआई (Claude.ai) वेबसाइट पर डार्क मोड थीम लागू करता है।
@@ -403,7 +403,7 @@ Installer de extensie rechtstreeks vanuit de [Chrome Web Store (Link volgt binne
 ---
 
 <details>
-<summary><b>tr Türkçe (Turkish)</b></summary>
+<summary><b>🇹🇷 Türkçe (Turkish)</b></summary>
 
 ### 🌟 Ana Özellikler
 * **Gerçek Zamanlı Bağlam Enjeksiyonu:** İstemlerinizin önüne tam saat, tarih ve yerel hava durumu bilgisini ekler.
@@ -433,7 +433,7 @@ Uzantıyı doğrudan [Chrome Web Mağazası (Bağlantı yakında)](#) üzerinden
 ---
 
 <details>
-<summary><b>pl Polski (Polish)</b></summary>
+<summary><b>🇵🇱 Polski (Polish)</b></summary>
 
 ### 🌟 Kluczowe Funkcje
 * **Wstrzykiwanie kontekstu w czasie rzeczywistym:** Dodaje dokładną godzinę, datę oraz lokalną pogodę przed Twoimi zapytaniami.
@@ -463,7 +463,7 @@ Zainstaluj rozszerzenie bezpośrednio z [Chrome Web Store (Link wkrótce)](#).
 ---
 
 <details>
-<summary><b>sv Svenska (Swedish)</b></summary>
+<summary><b>🇸🇪 Svenska (Swedish)</b></summary>
 
 ### 🌟 Huvudfunktioner
 * **Kontextinmatning i realtid:** Lägger till exakt tid, datum och lokalt väder före dina frågor.
