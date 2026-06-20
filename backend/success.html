@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ClockForClaude — Votre clé Pro</title>
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; background:#FAF7F2; color:#1A1611;
+           display:flex; min-height:100vh; align-items:center; justify-content:center; margin:0; }
+    .card { background:#fff; border:1px solid #E8E0D4; border-radius:18px; padding:40px;
+            max-width:440px; width:90%; text-align:center; box-shadow:0 8px 40px rgba(0,0,0,.10); }
+    h1 { font-size:22px; margin:0 0 8px; }
+    p { color:#8B7355; font-size:14px; line-height:1.6; }
+    .key { font-family:'SF Mono',monospace; font-size:22px; font-weight:700; letter-spacing:1px;
+           background:#FEF0E6; color:#C95D2A; border-radius:12px; padding:18px; margin:20px 0;
+           user-select:all; word-break:break-all; }
+    button { background:#E8743A; color:#fff; border:none; border-radius:12px; padding:12px 22px;
+             font-size:14px; font-weight:600; cursor:pointer; font-family:inherit; }
+    button:hover { background:#C95D2A; }
+    .muted { font-size:12px; }
+    .err { color:#C0392B; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div style="font-size:40px;">🕐</div>
+    <h1>Merci pour votre achat !</h1>
+    <p id="status">Récupération de votre clé de licence…</p>
+    <div class="key" id="keyBox" style="display:none;"></div>
+    <button id="copyBtn" style="display:none;" onclick="copyKey()">📋 Copier la clé</button>
+    <p class="muted">Collez cette clé dans l'extension ou l'application ClockForClaude
+       (réglages → activer Pro) pour débloquer le mode automatique.</p>
+  </div>
+
+  <script>
+    // ⚠️ Replace with your deployed function base URL.
+    const FN_BASE = "https://bzbiuvcgfexbbmxetxyh.supabase.co/functions/v1";
+
+    const params = new URLSearchParams(location.search);
+    const sessionId = params.get("session_id");
+    const statusEl = document.getElementById("status");
+    const keyBox = document.getElementById("keyBox");
+    const copyBtn = document.getElementById("copyBtn");
+
+    async function loadKey() {
+      if (!sessionId) { statusEl.textContent = "Session introuvable."; statusEl.className = "err"; return; }
+      for (let i = 0; i < 6; i++) {
+        try {
+          const res = await fetch(`${FN_BASE}/get-license?session_id=${encodeURIComponent(sessionId)}`);
+          const data = await res.json();
+          if (res.ok && data.license_key) {
+            statusEl.textContent = "Voici votre clé de licence Pro :";
+            keyBox.textContent = data.license_key; keyBox.style.display = "block";
+            copyBtn.style.display = "inline-block";
+            return;
+          }
+        } catch (_e) {}
+        await new Promise(r => setTimeout(r, 1500)); // webhook may lag slightly
+      }
+      statusEl.innerHTML = "Votre clé est en cours de génération. Vérifiez votre email ou réessayez dans une minute.";
+    }
+
+    function copyKey() {
+      navigator.clipboard.writeText(keyBox.textContent).then(() => {
+        copyBtn.textContent = "✓ Copié";
+        setTimeout(() => copyBtn.textContent = "📋 Copier la clé", 1500);
+      });
+    }
+    loadKey();
+  </script>
+</body>
+</html>

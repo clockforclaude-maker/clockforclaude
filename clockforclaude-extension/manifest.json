@@ -6,12 +6,15 @@
   "default_locale": "en",
   "permissions": [
     "storage",
-    "alarms",
     "geolocation"
   ],
   "host_permissions": [
     "https://api.open-meteo.com/*",
-    "https://geocoding-api.open-meteo.com/*"
+    "https://geocoding-api.open-meteo.com/*",
+    "https://api.bigdatacloud.net/*",
+    "https://api-bdc.io/*",
+    "https://raw.githubusercontent.com/*",
+    "https://*.supabase.co/*"
   ],
   "background": {
     "service_worker": "background.js"

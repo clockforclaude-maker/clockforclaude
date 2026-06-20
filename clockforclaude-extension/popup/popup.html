@@ -157,9 +157,10 @@
           <div id="premium-activation-zone" style="display: flex; flex-direction: column; gap: 8px; margin-top: 4px;">
             <a href="https://buy.stripe.com/14A5kw5videKeHk0fEao800" target="_blank" class="btn btn-premium" id="btn-premium-link" data-i18n="btnPremium">Passer à ClockForClaude Pro — 2,49 € / mois</a>
             <div style="display: flex; gap: 6px; align-items: center; margin-top: 2px;">
-              <input type="email" id="premium-email-input" placeholder="Email Stripe pour activer" style="flex: 1; padding: 6px 10px; font-size: 11px; border: 1px solid var(--border-color); border-radius: 6px; outline: none; background: var(--bg-input); color: var(--text-primary);">
+              <input type="text" id="premium-key-input" placeholder="CFC-XXXX-XXXX-XXXX" autocomplete="off" spellcheck="false" style="flex: 1; padding: 6px 10px; font-size: 11px; border: 1px solid var(--border-color); border-radius: 6px; outline: none; background: var(--bg-input); color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.5px;">
               <button class="btn btn-secondary" id="btn-activate-premium" style="font-size: 11px; padding: 6px 10px; font-weight: 600;">Activer</button>
             </div>
+            <div id="premium-activation-msg" style="font-size: 10px; min-height: 12px; color: var(--text-secondary);"></div>
           </div>
           
           <!-- Active State -->

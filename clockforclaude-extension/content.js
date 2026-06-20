@@ -92,9 +92,12 @@ async function checkPolledAutoInject(editor) {
       performInjection(editor, response.context, false);
     }
   } else if (settings.autoInjectMode === 'first') {
-    const shouldInject = !hasAutoInjectedThisChat && isNewChatUrl();
-    const shouldUpdate = hasAutoInjectedThisChat && isNewChatUrl() && isOnlyTimestamp;
-    
+    // First insertion stays gated to a new chat (only once per conversation)...
+    const shouldInject = !hasAutoInjectedThisChat && isNewChatUrl() && isEditorEmpty;
+    // ...but the live time refresh runs anywhere, every tick, as long as the box
+    // contains nothing but the timestamp. It freezes the moment the user types.
+    const shouldUpdate = isOnlyTimestamp;
+
     if (shouldInject || shouldUpdate) {
       const response = await chrome.runtime.sendMessage({ action: "get_full_context" });
       if (response && response.context) {

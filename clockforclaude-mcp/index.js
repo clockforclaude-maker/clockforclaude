@@ -3,7 +3,7 @@
  * ClockForClaude MCP Server
  * "Give Claude a window to the world"
  * 
- * Gives Claude real-time: time, date, timezone, weather, off-peak status
+ * Gives Claude real-time: time, date, timezone, weather
  * Compatible with: Claude Desktop, Claude Code
  * 
  * Install: npx clockforclaude-mcp
@@ -16,7 +16,6 @@ const { CallToolRequestSchema, ListToolsRequestSchema } = require("@modelcontext
 
 const tools = require("./tools/datetime");
 const weatherTools = require("./tools/weather");
-const offpeakTools = require("./tools/offpeak");
 const contextTools = require("./tools/context");
 
 const server = new Server(
@@ -46,19 +45,8 @@ server.setRequestHandler(ListToolsRequestSchema, async () => ({
       }
     },
     {
-      name: "get_offpeak_status",
-      description: "Check if Claude is currently in off-peak hours (usage limits doubled). Returns status and next peak/offpeak transition.",
-      inputSchema: {
-        type: "object",
-        properties: {
-          timezone: { type: "string", description: "IANA timezone string, e.g. 'Europe/Paris'" }
-        },
-        required: []
-      }
-    },
-    {
       name: "get_full_context",
-      description: "Get the complete [Horodatage système] context block with datetime + weather + offpeak status. Inject this at the start of any conversation for full temporal awareness.",
+      description: "Get the complete [System timestamp] context block with datetime + weather. Inject this at the start of any conversation for full temporal awareness.",
       inputSchema: {
         type: "object",
         properties: {
@@ -84,9 +72,6 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
       case "get_weather":
         const weather = await weatherTools.getWeather(args.latitude, args.longitude, args.city);
         return { content: [{ type: "text", text: weather }] };
-
-      case "get_offpeak_status":
-        return { content: [{ type: "text", text: offpeakTools.getOffpeakStatus(args.timezone) }] };
 
       case "get_full_context":
         const ctx = await contextTools.getFullContext(args.latitude, args.longitude, args.city);

@@ -1,7 +1,7 @@
 {
   "name": "clockforclaude-mcp",
   "version": "1.0.0",
-  "description": "Give Claude a window to the world — time, weather, timezone, off-peak status",
+  "description": "Give Claude a window to the world — real-time date, time, timezone, weather and off-peak status via MCP",
   "main": "index.js",
   "bin": {
     "clockforclaude-mcp": "./index.js"
@@ -9,9 +9,25 @@
   "scripts": {
     "start": "node index.js"
   },
-  "keywords": ["claude", "mcp", "time", "weather", "context", "anthropic"],
+  "keywords": ["claude", "mcp", "model-context-protocol", "time", "weather", "timezone", "context", "anthropic"],
   "author": "ClockForClaude",
   "license": "MIT",
+  "homepage": "https://clockforclaude.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/clockforclaude-maker/clockforclaude.git"
+  },
+  "bugs": {
+    "url": "https://github.com/clockforclaude-maker/clockforclaude/issues"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "files": [
+    "index.js",
+    "tools/",
+    "README.md"
+  ],
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.0"
   }

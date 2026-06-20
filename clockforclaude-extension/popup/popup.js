@@ -1,5 +1,27 @@
 // popup.js - Localized interactive UI logic for ClockForClaude Settings
 
+// ── Backend (license verification) ──────────────────────────────
+// Replace YOUR_PROJECT_REF with your Supabase project ref after deploying
+// the functions in /backend (see backend/README.md).
+const LICENSE_API = "https://bzbiuvcgfexbbmxetxyh.supabase.co/functions/v1/verify-license";
+
+function normalizeLicenseKey(raw) {
+  const cleaned = (raw || "").toUpperCase().replace(/[^A-Z0-9]/g, "");
+  if (!cleaned.startsWith("CFC")) return cleaned;
+  const groups = cleaned.slice(3).match(/.{1,4}/g) || [];
+  return `CFC-${groups.join("-")}`;
+}
+
+// Calls the backend to check a key. Returns { valid, plan, status, reason }.
+async function verifyLicenseKey(key) {
+  const res = await fetch(LICENSE_API, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ license_key: key }),
+  });
+  return res.json();
+}
+
 // Centralized Stripe Checkout Links Configuration
 const STRIPE_LINKS = {
   EUR: "https://buy.stripe.com/14A5kw5videKeHk0fEao800", // FR, ES, IT, DE, PT
@@ -85,7 +107,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   const premiumCard = document.getElementById('premium-card');
   const premiumActivationZone = document.getElementById('premium-activation-zone');
   const premiumActiveZone = document.getElementById('premium-active-zone');
-  const premiumEmailInput = document.getElementById('premium-email-input');
+  const premiumKeyInput = document.getElementById('premium-key-input');
+  const premiumActivationMsg = document.getElementById('premium-activation-msg');
   const btnActivatePremium = document.getElementById('btn-activate-premium');
   const btnDeactivatePremium = document.getElementById('btn-deactivate-premium');
 
@@ -126,8 +149,27 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // Populate Premium status
   updatePremiumUI(settings.premium_status === 'premium');
-  if (settings.premium_email) {
-    premiumEmailInput.value = settings.premium_email;
+  if (settings.premium_key) {
+    premiumKeyInput.value = settings.premium_key;
+  }
+
+  // Re-validate a stored key against the backend on every open. If the
+  // subscription was canceled / expired, this revokes Pro automatically.
+  if (settings.premium_status === 'premium' && settings.premium_key) {
+    verifyLicenseKey(settings.premium_key)
+      .then(async (result) => {
+        if (!result.valid) {
+          await chrome.storage.local.remove(['premium_status']);
+          updatePremiumUI(false);
+          if (premiumActivationMsg) {
+            premiumActivationMsg.style.color = '#dc2626';
+            premiumActivationMsg.textContent = result.reason === 'canceled'
+              ? (uiLang.startsWith('fr') ? "Abonnement annulé — Pro désactivé." : "Subscription canceled — Pro disabled.")
+              : (uiLang.startsWith('fr') ? "Clé invalide — Pro désactivé." : "Invalid key — Pro disabled.");
+          }
+        }
+      })
+      .catch(() => { /* offline: keep last known state, do not lock out */ });
   }
 
   // Update Live Preview
@@ -135,19 +177,52 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // --- Change Listeners ---
 
+  const setMsg = (text, ok) => {
+    if (!premiumActivationMsg) return;
+    premiumActivationMsg.style.color = ok ? 'var(--success-color)' : '#dc2626';
+    premiumActivationMsg.textContent = text;
+  };
+
   btnActivatePremium.addEventListener('click', async () => {
-    const email = premiumEmailInput.value.trim();
-    if (!email || !email.includes('@')) {
-      alert(chrome.i18n.getMessage('invalidEmailAlert') || "Please enter a valid email address.");
+    const key = normalizeLicenseKey(premiumKeyInput.value);
+    premiumKeyInput.value = key;
+    if (!/^CFC-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}$/.test(key)) {
+      setMsg(uiLang.startsWith('fr') ? "Format de clé invalide (CFC-XXXX-XXXX-XXXX)." : "Invalid key format (CFC-XXXX-XXXX-XXXX).", false);
       return;
     }
-    await chrome.storage.local.set({ premium_status: 'premium', premium_email: email });
-    updatePremiumUI(true);
+
+    btnActivatePremium.disabled = true;
+    const original = btnActivatePremium.textContent;
+    btnActivatePremium.textContent = uiLang.startsWith('fr') ? "Vérification…" : "Verifying…";
+    setMsg("", true);
+
+    try {
+      const result = await verifyLicenseKey(key);
+      if (result.valid) {
+        await chrome.storage.local.set({ premium_status: 'premium', premium_key: key });
+        updatePremiumUI(true);
+        setMsg(uiLang.startsWith('fr') ? "Clé valide — Pro activé !" : "Valid key — Pro activated!", true);
+      } else {
+        const reasons = {
+          not_found: uiLang.startsWith('fr') ? "Clé introuvable." : "Key not found.",
+          canceled: uiLang.startsWith('fr') ? "Abonnement annulé." : "Subscription canceled.",
+          past_due: uiLang.startsWith('fr') ? "Paiement en retard." : "Payment past due.",
+          invalid_format: uiLang.startsWith('fr') ? "Format invalide." : "Invalid format.",
+        };
+        setMsg(reasons[result.reason] || (uiLang.startsWith('fr') ? "Clé non valide." : "Invalid key."), false);
+      }
+    } catch (err) {
+      setMsg(uiLang.startsWith('fr') ? "Erreur réseau — réessayez." : "Network error — try again.", false);
+    } finally {
+      btnActivatePremium.disabled = false;
+      btnActivatePremium.textContent = original;
+    }
   });
 
   btnDeactivatePremium.addEventListener('click', async () => {
-    await chrome.storage.local.remove(['premium_status', 'premium_email']);
+    await chrome.storage.local.remove(['premium_status', 'premium_key']);
     updatePremiumUI(false);
+    setMsg("", true);
   });
 
 
@@ -391,9 +466,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (lonInput) {
       lonInput.placeholder = chrome.i18n.getMessage('lonPlaceholder') || "Optional (e.g. 2.3522)";
     }
-    const emailInput = document.getElementById('premium-email-input');
-    if (emailInput) {
-      emailInput.placeholder = chrome.i18n.getMessage('stripeEmailPlaceholder') || "Stripe email to activate";
+    const keyInput = document.getElementById('premium-key-input');
+    if (keyInput) {
+      keyInput.placeholder = chrome.i18n.getMessage('licenseKeyPlaceholder') || "CFC-XXXX-XXXX-XXXX";
     }
     
     // Setup i18n tooltips if tooltip elements exist

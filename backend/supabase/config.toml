@@ -1,0 +1,15 @@
+project_id = "clockforclaude"
+
+# These endpoints are called by Stripe and by unauthenticated clients
+# (extension popup, mobile app, success page), so JWT verification is OFF.
+# Security comes from the Stripe signature (webhook), the session id secret
+# (get-license), and the license key itself (verify-license).
+
+[functions.stripe-webhook]
+verify_jwt = false
+
+[functions.verify-license]
+verify_jwt = false
+
+[functions.get-license]
+verify_jwt = false

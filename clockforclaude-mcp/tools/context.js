@@ -1,24 +1,21 @@
 /**
- * Full context block — combines all tools
+ * Full context block — combines all tools.
  */
 
 const { getCurrentDatetime } = require('./datetime');
 const { getWeather } = require('./weather');
-const { getOffpeakStatus } = require('./offpeak');
 
 async function getFullContext(lat, lon, city) {
   const datetime = getCurrentDatetime();
-  const weather = lat && lon ? await getWeather(lat, lon, city) : 'Météo         : position non configurée';
-  const offpeak = getOffpeakStatus();
+  const weather = lat && lon ? await getWeather(lat, lon, city) : 'Weather    : location not configured';
 
   return [
-    '[Horodatage système]',
+    '[System timestamp]',
     datetime,
     weather,
-    offpeak,
-    '→ Adapte ton ton et tes réponses à ce contexte temporel.',
-    "→ Ne dis jamais 'bonne nuit' si l'heure est avant 21h.",
-    "→ Mentionne la météo si pertinent pour la conversation."
+    '→ Adapt your tone and answers to this real-world context.',
+    "→ Don't greet with 'good night' before 21:00 local time.",
+    '→ Mention the weather only when relevant to the conversation.'
   ].join('\n');
 }
 
