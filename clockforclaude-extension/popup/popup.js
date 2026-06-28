@@ -225,6 +225,51 @@ document.addEventListener('DOMContentLoaded', async () => {
     setMsg("", true);
   });
 
+  // --- iCal calendar (Pro) ---
+  const icalInput = document.getElementById('ical-url-input');
+  const btnSaveIcal = document.getElementById('btn-save-ical');
+  const icalMsg = document.getElementById('ical-msg');
+  if (icalInput && settings.icalUrl) icalInput.value = settings.icalUrl;
+
+  const setIcalMsg = (text, ok) => {
+    if (!icalMsg) return;
+    icalMsg.style.color = ok ? 'var(--success-color)' : '#dc2626';
+    icalMsg.textContent = text;
+  };
+
+  if (btnSaveIcal) {
+    btnSaveIcal.addEventListener('click', async () => {
+      const raw = (icalInput.value || '').trim();
+      if (!raw) {
+        await chrome.storage.local.remove(['icalUrl', 'ical_cache']);
+        setIcalMsg(uiLang.startsWith('fr') ? "Calendrier retiré." : "Calendar removed.", true);
+        return;
+      }
+      let origin;
+      try {
+        const u = new URL(raw);
+        if (u.protocol !== 'https:') throw new Error('not https');
+        origin = `${u.origin}/*`;
+      } catch (e) {
+        setIcalMsg(uiLang.startsWith('fr') ? "URL invalide (https requis)." : "Invalid URL (https required).", false);
+        return;
+      }
+      // Ask for permission to fetch this calendar's domain
+      let granted = false;
+      try {
+        granted = await chrome.permissions.request({ origins: [origin] });
+      } catch (e) { granted = false; }
+      if (!granted) {
+        setIcalMsg(uiLang.startsWith('fr') ? "Permission refusée pour ce domaine." : "Permission denied for this domain.", false);
+        return;
+      }
+      await chrome.storage.local.set({ icalUrl: raw });
+      await chrome.storage.local.remove('ical_cache');
+      setIcalMsg(uiLang.startsWith('fr') ? "✓ Calendrier enregistré." : "✓ Calendar saved.", true);
+      updatePreview();
+    });
+  }
+
 
 
   if (themeToggleCheckbox) {

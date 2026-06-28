@@ -257,6 +257,103 @@ function getDatetimeString(tz) {
   ].join('\n');
 }
 
+// ── Calendar (iCal) — Pro feature ───────────────────────────────────────────
+const CAL_STRINGS = {
+  fr: { next: "Prochain RDV", allday: "toute la journée" },
+  en: { next: "Next event", allday: "all day" },
+  es: { next: "Próxima cita", allday: "todo el día" },
+  it: { next: "Prossimo evento", allday: "tutto il giorno" },
+  de: { next: "Nächster Termin", allday: "ganztägig" },
+  pt: { next: "Próximo evento", allday: "dia inteiro" }
+};
+const ICAL_CACHE_TTL = 15 * 60 * 1000; // 15 minutes
+
+// Unfold RFC 5545 folded lines (continuation lines start with space/tab)
+function unfoldICS(text) {
+  return text.replace(/\r\n[ \t]/g, '').replace(/\n[ \t]/g, '');
+}
+
+// Parse an iCal date value (DATE-TIME with/without Z, or DATE-only)
+function parseICSDate(val) {
+  const m = val.match(/^(\d{4})(\d{2})(\d{2})(?:T(\d{2})(\d{2})(\d{2})?(Z)?)?/);
+  if (!m) return null;
+  const [, y, mo, d, h, mi, s, z] = m;
+  if (h === undefined) {
+    return { date: new Date(Number(y), Number(mo) - 1, Number(d)), allDay: true };
+  }
+  if (z) {
+    return { date: new Date(Date.UTC(+y, +mo - 1, +d, +h, +mi, +(s || 0))), allDay: false };
+  }
+  return { date: new Date(+y, +mo - 1, +d, +h, +mi, +(s || 0)), allDay: false };
+}
+
+// Parse ICS text and return the soonest upcoming (or ongoing) event.
+// Note: recurring events (RRULE) are not expanded in this version.
+function parseNextEvent(ics) {
+  const lines = unfoldICS(ics).split(/\r?\n/);
+  const events = [];
+  let cur = null;
+  for (const line of lines) {
+    if (line === 'BEGIN:VEVENT') { cur = {}; continue; }
+    if (line === 'END:VEVENT') { if (cur) events.push(cur); cur = null; continue; }
+    if (!cur) continue;
+    const idx = line.indexOf(':');
+    if (idx === -1) continue;
+    const key = line.slice(0, idx).split(';')[0].toUpperCase();
+    const val = line.slice(idx + 1);
+    if (key === 'DTSTART') cur.start = parseICSDate(val);
+    else if (key === 'SUMMARY') {
+      cur.summary = val.replace(/\\,/g, ',').replace(/\\;/g, ';').replace(/\\n/gi, ' ').trim();
+    }
+  }
+  const now = Date.now();
+  const sorted = events
+    .filter(e => e.start && e.start.date)
+    .sort((a, b) => a.start.date - b.start.date);
+  // soonest event still in the future, else nothing
+  return sorted.find(e => e.start.date.getTime() >= now) || null;
+}
+
+// Build the "Next event" line from the stored iCal URL (cached)
+async function getNextEventLine(lang) {
+  const stored = await chrome.storage.local.get(['icalUrl', 'ical_cache']);
+  const url = stored.icalUrl;
+  if (!url) return null;
+  const cal = CAL_STRINGS[lang] || CAL_STRINGS.en;
+  const strings = CONTEXT_STRINGS[lang] || CONTEXT_STRINGS.en;
+
+  let icsText = null;
+  const cache = stored.ical_cache;
+  if (cache && cache.url === url && (Date.now() - cache.timestamp < ICAL_CACHE_TTL)) {
+    icsText = cache.text;
+  } else {
+    try {
+      const res = await fetch(url);
+      if (!res.ok) return null;
+      icsText = await res.text();
+      await chrome.storage.local.set({ ical_cache: { url, text: icsText, timestamp: Date.now() } });
+    } catch (e) {
+      return null;
+    }
+  }
+
+  const ev = parseNextEvent(icsText);
+  if (!ev) return null;
+
+  const d = ev.start.date;
+  let when;
+  if (ev.start.allDay) {
+    when = cal.allday;
+  } else {
+    when = d.toLocaleTimeString(strings.localeCode, { hour: '2-digit', minute: '2-digit', hour12: false });
+    if (d.toDateString() !== new Date().toDateString()) {
+      when = d.toLocaleDateString(strings.localeCode, { day: 'numeric', month: 'short' }) + ' ' + when;
+    }
+  }
+  const title = ev.summary ? ev.summary.slice(0, 40) : '—';
+  return `${cal.next} : ${when} — ${title}`;
+}
+
 // Assemble full context block
 async function getFullContext() {
   const settings = await chrome.storage.local.get();
@@ -325,6 +422,16 @@ async function getFullContext() {
       } catch (err) {
         console.error("Error fetching weather for single line:", err);
       }
+    }
+  }
+
+  // Add next calendar event (Pro only, if an iCal URL is configured)
+  if (settings.premium_status === 'premium' && settings.icalUrl) {
+    try {
+      const evLine = await getNextEventLine(lang);
+      if (evLine) contextLine += ` | ${evLine}`;
+    } catch (err) {
+      console.error("Error fetching calendar event:", err);
     }
   }
 
