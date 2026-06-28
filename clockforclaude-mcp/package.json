@@ -1,6 +1,6 @@
 {
   "name": "clockforclaude-mcp",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Give Claude a window to the world — real-time date, time, timezone, weather and off-peak status via MCP",
   "main": "index.js",
   "bin": {
