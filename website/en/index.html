@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ClockForClaude — Donnez à Claude une fenêtre sur le monde</title>
-  <meta name="description" content="Injectez automatiquement l'heure locale, la date exacte et la météo dans vos prompts Claude.ai en temps réel. Extension Chrome & Firefox + connecteur MCP gratuit pour développeurs." />
+  <title>ClockForClaude — Give Claude a window to the world</title>
+  <meta name="description" content="Automatically inject the local time, exact date and weather into your Claude.ai prompts in real time. Chrome & Firefox extension + free MCP connector for developers." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -154,62 +154,62 @@
   <div class="nav-in">
     <a href="#" class="logo"><span class="logo-mark">🕐</span>Clock<b>ForClaude</b></a>
     <div class="nav-links">
-      <a href="#features" class="nav-link" onclick="go('features');return false;">Fonctionnalités</a>
-      <a href="#pricing" class="nav-link" onclick="go('pricing');return false;">Tarifs</a>
+      <a href="#features" class="nav-link" onclick="go('features');return false;">Features</a>
+      <a href="#pricing" class="nav-link" onclick="go('pricing');return false;">Pricing</a>
       <a href="#mcp" class="nav-link" onclick="go('mcp');return false;">MCP</a>
       <a href="#faq" class="nav-link" onclick="go('faq');return false;">FAQ</a>
-      <a href="/en/" class="nav-link" style="font-weight:700" title="English version">EN</a>
-      <button class="btn-nav" onclick="install()">Installer</button>
+      <a href="/" class="nav-link" style="font-weight:700" title="Version française">FR</a>
+      <button class="btn-nav" onclick="install()">Install</button>
     </div>
   </div>
 </nav>
 
 <section class="hero">
-  <div class="badge"><span class="dot"></span>Gratuit · Open source · Compatible Claude.ai</div>
-  <h1>Donnez à Claude<br/>une fenêtre sur le <em>monde</em></h1>
-  <p>Injectez automatiquement l'heure locale, la date exacte et la météo dans vos prompts Claude.ai en temps réel.</p>
+  <div class="badge"><span class="dot"></span>Free · Open source · Works with Claude.ai</div>
+  <h1>Give Claude<br/>a window to the <em>world</em></h1>
+  <p>Automatically inject the local time, exact date and weather into your Claude.ai prompts, in real time.</p>
   <div class="hero-ctas">
-    <button class="btn btn-primary" onclick="install()">🧩 Installer sur Chrome</button>
-    <button class="btn btn-ghost" onclick="go('mcp')">⚡ Guide connecteur MCP</button>
+    <button class="btn btn-primary" onclick="install()">🧩 Add to Chrome</button>
+    <button class="btn btn-ghost" onclick="go('mcp')">⚡ MCP connector guide</button>
   </div>
 </section>
 
-<!-- SIMULATEUR INTERACTIF -->
+<!-- INTERACTIVE SIMULATOR -->
 <div class="sim" id="essayer">
-  <p class="sim-label">Essayez en direct — voici l'interface de Claude.ai avec le bouton ClockForClaude :</p>
+  <p class="sim-label">Try it live — here's the Claude.ai composer with the ClockForClaude button:</p>
   <div class="composer">
     <div class="composer-top"><span class="d"></span><span class="d" style="background:#EAD9C6"></span><span class="d" style="background:#F0C8A8"></span><b>Claude</b><span style="margin-left:auto">claude.ai</span></div>
-    <div class="editor" id="editor" contenteditable="true" data-ph="Écrivez votre message à Claude…"></div>
+    <div class="editor" id="editor" contenteditable="true" data-ph="Write your message to Claude…"></div>
     <div class="composer-bar">
       <button class="clock-btn" id="clockBtn" onclick="insertClock()">🕒 Clock</button>
-      <button class="send" title="Envoyer" aria-label="Envoyer">↑</button>
+      <button class="send" title="Send" aria-label="Send">↑</button>
     </div>
   </div>
-  <p class="sim-hint">Cliquez sur <strong>🕒 Clock</strong> : le bloc d'horodatage réel (votre date &amp; heure) s'insère au début du message — exactement comme dans l'extension.</p>
+  <p class="sim-hint">Click <strong>🕒 Clock</strong>: the real timestamp block (your date &amp; time) is inserted at the start of the message — exactly like the extension.</p>
   <p class="sim-hint" id="liveCap" style="display:none;color:var(--green);font-weight:600"></p>
-  <p class="sim-hint">⚡ Ce rafraîchissement automatique (sans rien cliquer) est inclus dans la version <strong>Pro</strong> — en gratuit, un clic sur 🕒 Clock suffit.</p>
+  <p class="sim-hint">⚡ This automatic refresh (without clicking anything) is included in the <strong>Pro</strong> version — on Free, a single click on 🕒 Clock is enough.</p>
 </div>
 
-<!-- FONCTIONNALITÉS -->
+<!-- FEATURES -->
 <section class="section" id="features">
   <div class="wrap">
-    <div class="eyebrow center">Fonctionnalités</div>
-    <h2 class="h2 center" style="margin-bottom:40px">Ce que Claude voit enfin</h2>
+    <div class="eyebrow center">Features</div>
+    <h2 class="h2 center" style="margin-bottom:40px">What Claude finally sees</h2>
     <div class="grid3">
       <div class="cell">
-        <div class="ic">🕐</div><h4>Contexte temporel</h4>
-        <p>Heure locale, date complète, fuseau horaire, saison et moment de la journée — détectés automatiquement.</p>
-        <div class="ex"><b>Moment : Matin</b><br/>→ "Bonjour ! Belle journée pour avancer ☕"</div>
+        <div class="ic">🕐</div><h4>Time context</h4>
+        <p>Local time, full date, timezone, season and time of day — detected automatically.</p>
+        <div class="ex"><b>Moment: Morning</b><br/>→ "Good morning! Great day to make progress ☕"</div>
       </div>
       <div class="cell">
-        <div class="ic">🌤</div><h4>Météo locale</h4>
-        <p>Température, conditions, vent et heure du coucher de soleil via l'API gratuite Open-Meteo, selon votre position.</p>
-        <div class="ex"><b>22°C, Ensoleillé</b><br/>→ "Parfait pour un appel en terrasse"</div>
+        <div class="ic">🌤</div><h4>Local weather</h4>
+        <p>Temperature, conditions, wind and sunset time via the free Open-Meteo API, based on your location.</p>
+        <div class="ex"><b>22°C, Sunny</b><br/>→ "Perfect for a call on the terrace"</div>
       </div>
       <div class="cell">
-        <div class="ic">📅</div><h4>Jour ouvré &amp; planning</h4>
-        <p>Claude sait si c'est un jour ouvré et si les bureaux sont ouverts ou fermés, pour vous aider à planifier au bon moment.</p>
-        <div class="ex"><b>Vendredi 17h45 — Fermé</b><br/>→ "On finalise ça lundi à tête reposée ?"</div>
+        <div class="ic">📅</div><h4>Working day &amp; planning</h4>
+        <p>Claude knows whether it's a working day and whether offices are open or closed, to help you plan at the right time.</p>
+        <div class="ex"><b>Friday 5:45 PM — Closed</b><br/>→ "Shall we wrap this up Monday with a fresh mind?"</div>
       </div>
     </div>
   </div>
@@ -218,91 +218,91 @@
 <!-- ADAPTATION -->
 <section class="section" id="adapt">
   <div class="wrap">
-    <div class="eyebrow center">Ce que Claude peut faire</div>
-    <h2 class="h2 center" style="margin-bottom:40px">Claude adapte chaque conversation au temps réel</h2>
+    <div class="eyebrow center">What Claude can do</div>
+    <h2 class="h2 center" style="margin-bottom:40px">Claude adapts every conversation to real time</h2>
     <div class="grid3">
       <div class="cell">
-        <div class="ic">🌅</div><h4>Ton adapté au moment</h4>
-        <p>Claude dit « Bonjour ! » le matin, « Bonne soirée » après 18h, et adapte son énergie à la Nuit ou au Midi. Vos conversations deviennent naturelles, pas robotiques.</p>
-        <div class="ex"><b>Moment : Matin</b><br/>→ "Bonjour Maxime, belle journée pour avancer sur votre projet ☕"</div>
+        <div class="ic">🌅</div><h4>Tone matched to the moment</h4>
+        <p>Claude says "Good morning!" in the morning, "Good evening" after 6 PM, and adapts its energy to night or midday. Your conversations feel natural, not robotic.</p>
+        <div class="ex"><b>Moment: Morning</b><br/>→ "Good morning Maxime, great day to push your project forward ☕"</div>
       </div>
       <div class="cell">
-        <div class="ic">🌡️</div><h4>Météo &amp; Température (Pro)</h4>
-        <p>En version Pro, ClockForClaude injecte aussi la météo locale (température, conditions, UV). Claude peut conseiller sur les activités, les déplacements, ou adapter ses recommandations au climat.</p>
-        <div class="ex"><b>22°C, Ensoleillé</b><br/>→ "Parfait pour une réunion en terrasse"</div>
+        <div class="ic">🌡️</div><h4>Weather &amp; Temperature (Pro)</h4>
+        <p>In the Pro version, ClockForClaude also injects the local weather (temperature, conditions, UV). Claude can advise on activities, travel, or adapt its recommendations to the climate.</p>
+        <div class="ex"><b>22°C, Sunny</b><br/>→ "Perfect for a meeting on the terrace"</div>
       </div>
       <div class="cell" style="background:linear-gradient(135deg,var(--orange-lt),#fff8f0);border-color:rgba(232,116,58,.25)">
-        <div class="ic">✨</div><h4>Claude conscient, pas juste intelligent</h4>
-        <p>Un assistant IA qui ne sait pas l'heure, c'est comme un collaborateur qui travaille les yeux bandés. ClockForClaude lui retire le bandeau — il devient pleinement présent dans votre réalité.</p>
-        <button class="btn btn-primary" style="margin-top:16px;font-size:14px;padding:11px 20px" onclick="go('essayer')">Essayer maintenant →</button>
+        <div class="ic">✨</div><h4>Claude aware, not just smart</h4>
+        <p>An AI assistant that doesn't know the time is like a colleague working blindfolded. ClockForClaude removes the blindfold — it becomes fully present in your reality.</p>
+        <button class="btn btn-primary" style="margin-top:16px;font-size:14px;padding:11px 20px" onclick="go('essayer')">Try it now →</button>
       </div>
     </div>
   </div>
 </section>
 
-<!-- TARIFICATION -->
+<!-- PRICING -->
 <section class="section" id="pricing" style="background:var(--bg2)">
   <div class="wrap">
-    <div class="eyebrow center">Tarifs</div>
+    <div class="eyebrow center">Pricing</div>
     <h2 class="h2 center">Simple. Transparent.</h2>
-    <p class="sub center">Gratuit à vie. Passez Pro quand vous voulez l'automatisation.</p>
+    <p class="sub center">Free forever. Go Pro whenever you want automation.</p>
     <div class="price-grid">
       <div class="price">
         <div class="name">Free</div>
-        <div class="amt">0€ <span>/ pour toujours</span></div>
-        <div class="pd">Pour tous les utilisateurs de Claude</div>
+        <div class="amt">€0 <span>/ forever</span></div>
+        <div class="pd">For every Claude user</div>
         <ul>
-          <li>Extension Chrome &amp; Firefox</li>
-          <li>Bouton d'injection manuel 🕒 Clock</li>
-          <li>Heure · date · fuseau · saison · moment</li>
-          <li>Jour ouvré &amp; heures de bureau</li>
-          <li>Localisation par IP</li>
-          <li>🌙 Mode sombre sur Claude.ai</li>
-          <li>WebApp copier-coller (tous appareils)</li>
+          <li>Chrome &amp; Firefox extension</li>
+          <li>Manual injection button 🕒 Clock</li>
+          <li>Time · date · timezone · season · moment</li>
+          <li>Working day &amp; office hours</li>
+          <li>IP-based location</li>
+          <li>🌙 Dark mode on Claude.ai</li>
+          <li>Copy-paste web app (all devices)</li>
         </ul>
-        <button class="b-outline" onclick="install()">Installer gratuitement</button>
+        <button class="b-outline" onclick="install()">Install for free</button>
       </div>
       <div class="price feat">
-        <div class="price-tag">⭐ Populaire</div>
+        <div class="price-tag">⭐ Popular</div>
         <div class="name">Pro</div>
-        <div class="amt">2,49€ <span>/ mois · TTC</span></div>
-        <div class="pd">Pour les power users de Claude</div>
+        <div class="amt">€2.49 <span>/ month · incl. tax</span></div>
+        <div class="pd">For Claude power users</div>
         <ul>
-          <li>Tout le Free inclus</li>
-          <li><strong>Injection automatique</strong> (⚡ AUTO) — l'heure se rafraîchit toute seule, puis se fige dès que vous écrivez</li>
-          <li>Météo dynamique complète (UV, vent, coucher)</li>
-          <li>GPS précis (pas seulement l'IP)</li>
-          <li>Calendrier injecté — prochain RDV</li>
+          <li>Everything in Free</li>
+          <li><strong>Automatic injection</strong> (⚡ AUTO) — the time refreshes on its own, then freezes as soon as you type</li>
+          <li>Full dynamic weather (UV, wind, sunset)</li>
+          <li>Precise GPS (not just IP)</li>
+          <li>Injected calendar — next event</li>
         </ul>
-        <button class="b-orange" onclick="window.open('https://buy.stripe.com/4gM7sE7Dq4Ie0Qu5zYao802','_blank')">Passer Pro →</button>
+        <button class="b-orange" onclick="window.open('https://buy.stripe.com/4gM7sE7Dq4Ie0Qu5zYao802','_blank')">Go Pro →</button>
       </div>
     </div>
-    <p class="price-note">Après paiement, vous recevez une clé <code style="background:var(--card);padding:2px 7px;border-radius:5px;color:var(--orange-dk);font-family:ui-monospace,monospace">CFC-XXXX-XXXX-XXXX</code> à coller dans l'extension pour activer le Pro. Annulable à tout moment.</p>
+    <p class="price-note">After payment, you receive a key <code style="background:var(--card);padding:2px 7px;border-radius:5px;color:var(--orange-dk);font-family:ui-monospace,monospace">CFC-XXXX-XXXX-XXXX</code> to paste into the extension to activate Pro. Cancel anytime.</p>
   </div>
 </section>
 
 <!-- MCP SERVER -->
 <section class="section dark" id="mcp">
   <div class="wrap">
-    <div class="eyebrow">Connecteur MCP · Développeurs</div>
-    <h2 class="h2">Branchez le temps réel<br/>dans Claude Desktop &amp; Claude Code</h2>
-    <p class="sub">Un serveur MCP gratuit et open source. Claude obtient 3 outils qu'il appelle lui-même pour connaître l'heure et la météo — sans aucune extension.</p>
+    <div class="eyebrow">MCP connector · Developers</div>
+    <h2 class="h2">Plug real time<br/>into Claude Desktop &amp; Claude Code</h2>
+    <p class="sub">A free and open-source MCP server. Claude gets 3 tools it calls itself to know the time and weather — with no extension.</p>
     <div class="mcp-grid">
       <div>
-        <div class="tool"><span class="ic">🕐</span><div><code>get_current_datetime</code><p>Date, heure, fuseau, saison et moment de la journée.</p></div></div>
-        <div class="tool"><span class="ic">🌤</span><div><code>get_weather</code><p>Température, conditions, vent et coucher de soleil (Open-Meteo).</p></div></div>
-        <div class="tool"><span class="ic">📦</span><div><code>get_full_context</code><p>Le bloc d'horodatage complet, prêt à injecter.</p></div></div>
+        <div class="tool"><span class="ic">🕐</span><div><code>get_current_datetime</code><p>Date, time, timezone, season and time of day.</p></div></div>
+        <div class="tool"><span class="ic">🌤</span><div><code>get_weather</code><p>Temperature, conditions, wind and sunset (Open-Meteo).</p></div></div>
+        <div class="tool"><span class="ic">📦</span><div><code>get_full_context</code><p>The complete timestamp block, ready to inject.</p></div></div>
       </div>
       <div>
         <div class="codeblk">
-          <button class="copybtn" onclick="copyTxt(this,'claude mcp add clockforclaude -- npx -y clockforclaude-mcp')">Copier</button>
-          <span class="lbl">Claude Code — une commande</span>
+          <button class="copybtn" onclick="copyTxt(this,'claude mcp add clockforclaude -- npx -y clockforclaude-mcp')">Copy</button>
+          <span class="lbl">Claude Code — one command</span>
 <span class="w">claude mcp add clockforclaude \</span>
   <span class="w">-- npx -y clockforclaude-mcp</span>
         </div>
         <div class="codeblk">
-          <button class="copybtn" onclick='copyTxt(this,JSON.stringify({mcpServers:{clockforclaude:{command:"npx",args:["-y","clockforclaude-mcp"]}}},null,2))'>Copier</button>
-          <span class="lbl">Claude Desktop — config JSON</span>
+          <button class="copybtn" onclick='copyTxt(this,JSON.stringify({mcpServers:{clockforclaude:{command:"npx",args:["-y","clockforclaude-mcp"]}}},null,2))'>Copy</button>
+          <span class="lbl">Claude Desktop — JSON config</span>
 <span class="w">{</span>
   <span class="key">"mcpServers"</span>: <span class="w">{</span>
     <span class="key">"clockforclaude"</span>: <span class="w">{</span>
@@ -312,7 +312,7 @@
   <span class="w">}</span>
 <span class="w">}</span>
         </div>
-        <p style="font-size:12.5px;color:rgba(255,255,255,.45);margin-top:4px">Nécessite Node.js ≥ 18 · 100 % gratuit · <span class="mut">github.com/clockforclaude</span></p>
+        <p style="font-size:12.5px;color:rgba(255,255,255,.45);margin-top:4px">Requires Node.js ≥ 18 · 100% free · <span class="mut">github.com/clockforclaude</span></p>
       </div>
     </div>
   </div>
@@ -322,13 +322,13 @@
 <section class="section" id="faq">
   <div class="wrap">
     <div class="eyebrow center">FAQ</div>
-    <h2 class="h2 center" style="margin-bottom:40px">Questions fréquentes</h2>
+    <h2 class="h2 center" style="margin-bottom:40px">Frequently asked questions</h2>
     <div class="faq">
-      <details open><summary>Mes données sont-elles privées ?</summary><p>Oui, totalement. Vos réglages et votre position sont stockés <strong>localement</strong> dans votre navigateur. Aucune donnée n'est revendue. Seules vos coordonnées (latitude/longitude) sont envoyées à l'API météo gratuite Open-Meteo, sans aucune information personnelle.</p></details>
-      <details><summary>Comment fonctionne l'abonnement Pro ?</summary><p>Le Pro coûte 2,49 €/mois via Stripe. Après paiement, vous recevez une <strong>clé de licence</strong> au format <code>CFC-XXXX-XXXX-XXXX</code> à coller dans les réglages de l'extension pour débloquer l'injection automatique, la météo dynamique et le calendrier. Annulable à tout moment depuis votre espace Stripe.</p></details>
-      <details><summary>Sur quels appareils ça marche ?</summary><p>L'extension fonctionne sur <strong>Chrome, Brave, Edge et Firefox</strong>. La WebApp copier-coller fonctionne partout (iPhone, Android, PC). Le connecteur MCP s'utilise dans <strong>Claude Desktop</strong> et <strong>Claude Code</strong>. Safari et les apps natives iOS/Android arrivent bientôt.</p></details>
-      <details><summary>Le connecteur MCP est-il payant ?</summary><p>Non, le serveur MCP est <strong>100 % gratuit et open source</strong>. Installez-le en une commande avec <code>npx clockforclaude-mcp</code> (Node.js ≥ 18 requis).</p></details>
-      <details><summary>ClockForClaude est-il affilié à Anthropic ?</summary><p>Non. ClockForClaude est un projet indépendant, <strong>non affilié à Anthropic</strong>. « Claude » est une marque d'Anthropic ; ce produit l'utilise uniquement pour décrire la compatibilité.</p></details>
+      <details open><summary>Is my data private?</summary><p>Yes, completely. Your settings and location are stored <strong>locally</strong> in your browser. No data is ever sold. Only your coordinates (latitude/longitude) are sent to the free Open-Meteo weather API, with no personal information.</p></details>
+      <details><summary>How does the Pro subscription work?</summary><p>Pro costs €2.49/month via Stripe. After payment, you receive a <strong>license key</strong> in the format <code>CFC-XXXX-XXXX-XXXX</code> to paste into the extension settings to unlock automatic injection, dynamic weather and the calendar. Cancel anytime from your Stripe portal.</p></details>
+      <details><summary>Which devices does it work on?</summary><p>The extension works on <strong>Chrome, Brave, Edge and Firefox</strong>. The copy-paste web app works everywhere (iPhone, Android, PC). The MCP connector is used in <strong>Claude Desktop</strong> and <strong>Claude Code</strong>. Safari and native iOS/Android apps are coming soon.</p></details>
+      <details><summary>Is the MCP connector paid?</summary><p>No, the MCP server is <strong>100% free and open source</strong>. Install it in one command with <code>npx clockforclaude-mcp</code> (Node.js ≥ 18 required).</p></details>
+      <details><summary>Is ClockForClaude affiliated with Anthropic?</summary><p>No. ClockForClaude is an independent project, <strong>not affiliated with Anthropic</strong>. "Claude" is a trademark of Anthropic; this product only uses it to describe compatibility.</p></details>
     </div>
   </div>
 </section>
@@ -337,36 +337,37 @@
   <div class="f-logo"><span class="logo-mark">🕐</span>Clock<b>ForClaude</b></div>
   <div class="f-tag">Give Claude a window to the world</div>
   <div class="f-links">
-    <a href="#features" onclick="go('features');return false;">Fonctionnalités</a><a href="#pricing" onclick="go('pricing');return false;">Tarifs</a><a href="#mcp" onclick="go('mcp');return false;">MCP</a><a href="#faq" onclick="go('faq');return false;">FAQ</a>
-    <a href="privacy-policy-extension.html">Confidentialité</a><a href="terms.html">Conditions</a>
+    <a href="#features" onclick="go('features');return false;">Features</a><a href="#pricing" onclick="go('pricing');return false;">Pricing</a><a href="#mcp" onclick="go('mcp');return false;">MCP</a><a href="#faq" onclick="go('faq');return false;">FAQ</a>
+    <a href="privacy-policy-extension.html">Privacy</a><a href="terms.html">Terms</a>
     <a href="mailto:clockforclaude@gmail.com">Contact</a>
+    <a href="/">Français</a>
   </div>
-  <div class="f-copy">© 2026 ClockForClaude — Gratuit &amp; Open Source — Toulouse, France<br/>Projet indépendant, non affilié à Anthropic. « Claude » est une marque d'Anthropic.</div>
+  <div class="f-copy">© 2026 ClockForClaude — Free &amp; Open Source — Toulouse, France<br/>Independent project, not affiliated with Anthropic. "Claude" is a trademark of Anthropic.</div>
 </footer>
 
 <script>
-  const JOURS=['Dimanche','Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi'];
-  const MOIS=['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
+  const DAYS=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  const MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
   const pad=n=>String(n).padStart(2,'0');
   const go=id=>document.getElementById(id).scrollIntoView({behavior:'smooth'});
-  function install(){alert("L'extension arrive très bientôt sur le Chrome Web Store et Firefox Add-ons. En attendant, utilisez le bouton 🕒 Clock du simulateur ci-dessus ou le connecteur MCP !");}
+  function install(){alert("The extension is coming very soon to the Chrome Web Store and Firefox Add-ons. In the meantime, use the 🕒 Clock button in the simulator above or the MCP connector!");}
 
-  function moment(h){if(h>=5&&h<12)return'Matin';if(h>=12&&h<14)return'Midi';if(h>=14&&h<18)return'Après-midi';if(h>=18&&h<22)return'Soirée';return'Nuit';}
-  function workday(d){return(d>=1&&d<=5)?'Oui':'Non';}
-  function office(d,h){return(d>=1&&d<=5&&h>=8&&h<18)?'Ouvert':'Fermé';}
+  function moment(h){if(h>=5&&h<12)return'Morning';if(h>=12&&h<14)return'Midday';if(h>=14&&h<18)return'Afternoon';if(h>=18&&h<22)return'Evening';return'Night';}
+  function workday(d){return(d>=1&&d<=5)?'Yes':'No';}
+  function office(d,h){return(d>=1&&d<=5&&h>=8&&h<18)?'Open':'Closed';}
   function getTZ(){try{const now=new Date();const zone=Intl.DateTimeFormat().resolvedOptions().timeZone||'';const city=zone.split('/').pop().replace(/_/g,' ')||'';const off=-now.getTimezoneOffset();const s=off>=0?'+':'-';const hh=Math.floor(Math.abs(off)/60);const mm=Math.abs(off)%60;return(city?city+' — ':'')+`UTC${s}${hh}${mm?':'+pad(mm):''}`;}catch(e){return'UTC';}}
 
   function buildLines(){
     const now=new Date(),d=now.getDay(),h=now.getHours(),m=now.getMinutes();
     return[
-      '[Horodatage système]',
-      `Date : ${JOURS[d]} ${now.getDate()} ${MOIS[now.getMonth()]} ${now.getFullYear()}`,
-      `Heure : ${pad(h)}:${pad(m)}`,
-      `Fuseau : ${getTZ()}`,
-      `Moment : ${moment(h)}`,
-      `Jour ouvré : ${workday(d)}`,
-      `Heures de bureau : ${office(d,h)}`,
-      '[/Horodatage système]'
+      '[System timestamp]',
+      `Date: ${DAYS[d]} ${MONTHS[now.getMonth()]} ${now.getDate()}, ${now.getFullYear()}`,
+      `Time: ${pad(h)}:${pad(m)}`,
+      `Timezone: ${getTZ()}`,
+      `Moment: ${moment(h)}`,
+      `Working day: ${workday(d)}`,
+      `Office hours: ${office(d,h)}`,
+      '[/System timestamp]'
     ];
   }
 
@@ -374,8 +375,8 @@
     const lines=buildLines();
     return lines.map((ln,i)=>{
       if(i===0||i===lines.length-1)return `<span class="tag">${ln}</span>`;
-      const idx=ln.indexOf(' : ');if(idx===-1)return ln;
-      return `<span class="k">${ln.slice(0,idx+3)}</span><span class="v">${ln.slice(idx+3)}</span>`;
+      const idx=ln.indexOf(': ');if(idx===-1)return ln;
+      return `<span class="k">${ln.slice(0,idx+2)}</span><span class="v">${ln.slice(idx+2)}</span>`;
     }).join('\n');
   }
   function userHasTyped(ed){
@@ -389,25 +390,23 @@
       ed.insertBefore(blk,ed.firstChild);
     }
     const btn=document.getElementById('clockBtn');
-    btn.classList.add('ok');btn.textContent='✓ Inséré';
+    btn.classList.add('ok');btn.textContent='✓ Inserted';
     setTimeout(()=>{btn.classList.remove('ok');btn.textContent='🕒 Clock';},1800);
     const cap=document.getElementById('liveCap');if(cap)cap.style.display='block';
     ed.focus();
   }
-  // Auto-refresh: tant que seul l'horodatage est présent, l'heure se met à jour ;
-  // dès que l'utilisateur tape un message, elle se fige (exactement comme l'extension Pro).
   function tickClock(){
     const ed=document.getElementById('editor');if(!ed)return;
     const blk=ed.querySelector('.blk');const cap=document.getElementById('liveCap');
     if(!blk)return;
-    if(userHasTyped(ed)){if(cap)cap.innerHTML='🔒 Heure figée — vous écrivez votre message';return;}
+    if(userHasTyped(ed)){if(cap)cap.innerHTML='🔒 Time frozen — you are writing your message';return;}
     blk.innerHTML=blockInner();
-    if(cap)cap.innerHTML="🟢 L'heure se met à jour toute seule — tapez pour la figer";
+    if(cap)cap.innerHTML="🟢 The time updates on its own — type to freeze it";
   }
   setInterval(tickClock,1000);
 
   function copyTxt(btn,txt){
-    navigator.clipboard.writeText(txt).then(()=>{const o=btn.textContent;btn.textContent='✓ Copié';setTimeout(()=>btn.textContent=o,1500);});
+    navigator.clipboard.writeText(txt).then(()=>{const o=btn.textContent;btn.textContent='✓ Copied';setTimeout(()=>btn.textContent=o,1500);});
   }
 </script>
 </body>
