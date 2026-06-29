@@ -1,0 +1,28 @@
+name: Supabase keep-alive
+
+# Garde le projet Supabase (plan gratuit) actif : sans activité pendant ~7 jours,
+# il se met en pause et tout le système de licence Pro tombe. On génère donc une
+# requête vers la base chaque jour via la fonction verify-license (qui fait un SELECT).
+
+on:
+  schedule:
+    - cron: "17 6 * * *"   # tous les jours à 06:17 UTC
+  workflow_dispatch: {}      # permet aussi un déclenchement manuel
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping verify-license (active la base)
+        run: |
+          code=$(curl -s -o /tmp/out.txt -w "%{http_code}" \
+            -X POST "https://bzbiuvcgfexbbmxetxyh.supabase.co/functions/v1/verify-license" \
+            -H "Content-Type: application/json" \
+            --data '{"license_key":"CFC-KEEP-ALIVE-PING"}')
+          echo "HTTP $code"
+          cat /tmp/out.txt
+          # 200 attendu (clé inexistante -> {"valid":false,...}). Échec si pas 2xx.
+          case "$code" in
+            2*) echo "OK: Supabase actif." ;;
+            *)  echo "::warning::Réponse inattendue ($code) — vérifier l'état du projet Supabase." ;;
+          esac
