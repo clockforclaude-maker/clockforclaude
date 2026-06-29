@@ -3,7 +3,7 @@
     "message": "ClockForClaude"
   },
   "appDesc": {
-    "message": "Donnez à Claude une fenêtre sur le monde : heure locale, date, météo et heures creuses directement dans claude.ai."
+    "message": "Donnez à Claude une fenêtre sur le monde : heure locale, date, fuseau et météo, injectés automatiquement dans claude.ai."
   },
   "settingsTitle": {
     "message": "Configuration"

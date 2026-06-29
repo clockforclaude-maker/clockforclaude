@@ -3,7 +3,7 @@
     "message": "ClockForClaude"
   },
   "appDesc": {
-    "message": "Give Claude a window to the world: local time, date, weather, and off-peak status directly inside claude.ai."
+    "message": "Give Claude a window to the world: local time, date, timezone and weather, injected automatically into claude.ai."
   },
   "settingsTitle": {
     "message": "Configuration"
