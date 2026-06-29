@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover" />
+  <title>ClockForClaude — copy the time block</title>
+  <meta name="description" content="Generate a real-time context block (date, time, timezone, weather) and copy it into the Claude app." />
+  <meta name="theme-color" content="#1A1611" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="icon-180.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,600;1,6..72,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--bg:#FAF7F2;--ink:#1A1611;--orange:#E8743A;--orange-dk:#C95D2A;--orange-lt:#FEF0E6;--muted:#8B7355;--border:#E8E0D4;--green:#3DAA6E;--sans:'Inter',system-ui,sans-serif;--serif:'Newsreader',Georgia,serif}
+    body{font-family:var(--sans);background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.55;min-height:100vh;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
+    .wrap{max-width:460px;margin:0 auto;padding:22px 18px 40px}
+    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px}
+    .logo{display:flex;align-items:center;gap:9px;font-weight:800;font-size:18px;letter-spacing:-.3px}
+    .logo b{color:var(--orange)}
+    .mk{width:34px;height:34px;border-radius:10px;background:var(--ink);color:var(--orange);display:flex;align-items:center;justify-content:center;font-size:18px}
+    .lang{font-size:13px;font-weight:700;color:var(--muted);background:#fff;border:1px solid var(--border);border-radius:8px;padding:6px 10px;cursor:pointer}
+    h1{font-family:var(--serif);font-weight:600;font-size:26px;line-height:1.15;letter-spacing:-.6px;margin-bottom:6px}
+    .sub{font-size:14px;color:var(--muted);margin-bottom:20px}
+    .blk{background:var(--ink);color:#EDE6DB;font-family:ui-monospace,monospace;font-size:13px;line-height:1.85;padding:18px 18px;border-radius:16px;white-space:pre-wrap;word-break:break-word;box-shadow:0 12px 36px rgba(60,40,20,.14)}
+    .blk .tag{color:#F4915E;font-weight:700}.blk .k{color:#9a8b78}
+    .btn{width:100%;font-family:inherit;font-size:16px;font-weight:700;border:none;border-radius:14px;padding:16px;cursor:pointer;transition:transform .1s,background .15s}
+    .btn:active{transform:scale(.98)}
+    .copy{background:var(--orange);color:#fff;margin-top:16px;box-shadow:0 8px 22px rgba(232,116,58,.3)}
+    .copy.ok{background:var(--green)}
+    .gps{background:var(--orange-lt);color:var(--orange-dk);border:1px solid rgba(232,116,58,.25);margin-top:10px;font-size:14px;padding:13px}
+    .status{text-align:center;font-size:12.5px;color:var(--muted);min-height:16px;margin-top:10px}
+    .hint{margin-top:24px;background:#fff;border:1px solid var(--border);border-radius:12px;padding:13px 15px;font-size:13px;color:var(--muted);line-height:1.5}
+    .hint b{color:var(--ink)}
+    footer{text-align:center;margin-top:26px;font-size:12px;color:var(--muted)}
+    footer a{color:var(--orange);text-decoration:none}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <span class="logo"><span class="mk">🕐</span>Clock<b>ForClaude</b></span>
+      <button class="lang" id="langBtn">FR</button>
+    </header>
+    <h1 id="h1">Copy the time block</h1>
+    <p class="sub" id="sub">Tap “Copy”, then paste it at the start of your message in the Claude app.</p>
+
+    <div class="blk" id="blk"></div>
+
+    <button class="btn copy" id="copyBtn">📋 Copy the block</button>
+    <button class="btn gps" id="gpsBtn">📡 Add my local weather</button>
+    <div class="status" id="status"></div>
+
+    <div class="hint" id="hint"></div>
+
+    <footer>
+      <a href="/" id="home">clockforclaude.com</a>
+    </footer>
+  </div>
+
+  <script>
+  (function(){
+    // ── i18n ──────────────────────────────────────────────
+    const I18N = {
+      fr: {
+        h1: "Copiez le bloc horaire",
+        sub: "Touchez « Copier », puis collez-le au début de votre message dans l'app Claude.",
+        copy: "📋 Copier le bloc", copied: "✓ Copié !",
+        gps: "📡 Ajouter ma météo locale", gpsLoading: "Localisation…", gpsOk: "✓ Météo ajoutée", gpsDenied: "Permission refusée", gpsErr: "Position indisponible",
+        days: ['Dimanche','Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi'],
+        months: ['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'],
+        moments: ['Matin','Midi','Après-midi','Soirée','Nuit'],
+        L:{tag1:'[Horodatage système]',date:'Date',time:'Heure',tz:'Fuseau',moment:'Moment',jo:'Jour ouvré',hb:'Heures de bureau',weather:'Météo',tag2:'[/Horodatage système]',yes:'Oui',no:'Non',open:'Ouvert',closed:'Fermé'},
+        hint: "<b>Astuce :</b> installe cette page sur ton écran d'accueil — sur iPhone, appuie sur <b>Partager</b> puis <b>« Sur l'écran d'accueil »</b>. Elle s'ouvrira comme une app.",
+        wmo:{0:'Ciel dégagé',1:'Plutôt dégagé',2:'Partiellement nuageux',3:'Couvert',45:'Brouillard',48:'Givre',51:'Bruine',53:'Bruine',55:'Bruine dense',61:'Pluie légère',63:'Pluie',65:'Pluie forte',71:'Neige',73:'Neige',75:'Neige forte',80:'Averses',81:'Averses',82:'Averses fortes',95:'Orage',99:'Orage de grêle'}
+      },
+      en: {
+        h1: "Copy the time block",
+        sub: "Tap “Copy”, then paste it at the start of your message in the Claude app.",
+        copy: "📋 Copy the block", copied: "✓ Copied!",
+        gps: "📡 Add my local weather", gpsLoading: "Locating…", gpsOk: "✓ Weather added", gpsDenied: "Permission denied", gpsErr: "Location unavailable",
+        days: ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],
+        months: ['January','February','March','April','May','June','July','August','September','October','November','December'],
+        moments: ['Morning','Midday','Afternoon','Evening','Night'],
+        L:{tag1:'[System timestamp]',date:'Date',time:'Time',tz:'Timezone',moment:'Moment',jo:'Working day',hb:'Office hours',weather:'Weather',tag2:'[/System timestamp]',yes:'Yes',no:'No',open:'Open',closed:'Closed'},
+        hint: "<b>Tip:</b> install this page on your home screen — on iPhone, tap <b>Share</b> then <b>“Add to Home Screen”</b>. It opens like an app.",
+        wmo:{0:'Clear sky',1:'Mostly clear',2:'Partly cloudy',3:'Overcast',45:'Fog',48:'Rime fog',51:'Drizzle',53:'Drizzle',55:'Dense drizzle',61:'Light rain',63:'Rain',65:'Heavy rain',71:'Snow',73:'Snow',75:'Heavy snow',80:'Showers',81:'Showers',82:'Violent showers',95:'Thunderstorm',99:'Hailstorm'}
+      }
+    };
+    let lang = (navigator.language||'en').toLowerCase().startsWith('fr') ? 'fr' : 'en';
+    let weatherLine = null; // cached "Weather: ..." text
+    let coords = null;
+    try { const s = JSON.parse(localStorage.getItem('cfc_coords')||'null'); if(s) coords = s; } catch(e){}
+
+    const pad = n => String(n).padStart(2,'0');
+    const $ = id => document.getElementById(id);
+
+    function tz(){
+      try{const z=Intl.DateTimeFormat().resolvedOptions().timeZone||'';const city=z.split('/').pop().replace(/_/g,' ');const o=-new Date().getTimezoneOffset();const s=o>=0?'+':'-';const h=Math.floor(Math.abs(o)/60);const m=Math.abs(o)%60;return (city?city+' — ':'')+`UTC${s}${h}${m?':'+pad(m):''}`;}catch(e){return 'UTC';}
+    }
+    function momentIdx(h){if(h>=5&&h<12)return 0;if(h>=12&&h<14)return 1;if(h>=14&&h<18)return 2;if(h>=18&&h<22)return 3;return 4;}
+
+    function lines(){
+      const t=I18N[lang], L=t.L, now=new Date(), d=now.getDay(), h=now.getHours(), m=now.getMinutes();
+      const dateStr = lang==='fr'
+        ? `${t.days[d]} ${now.getDate()} ${t.months[now.getMonth()]} ${now.getFullYear()}`
+        : `${t.days[d]}, ${t.months[now.getMonth()]} ${now.getDate()}, ${now.getFullYear()}`;
+      const arr = [
+        L.tag1,
+        `${L.date} : ${dateStr}`,
+        `${L.time} : ${pad(h)}:${pad(m)}`,
+        `${L.tz} : ${tz()}`,
+        `${L.moment} : ${t.moments[momentIdx(h)]}`,
+        `${L.jo} : ${(d>=1&&d<=5)?L.yes:L.no}`,
+        `${L.hb} : ${(d>=1&&d<=5&&h>=8&&h<18)?L.open:L.closed}`
+      ];
+      if(weatherLine) arr.push(weatherLine);
+      arr.push(L.tag2);
+      return arr;
+    }
+    function plain(){ return lines().join('\n'); }
+    function html(){
+      return lines().map((ln,i,a)=>{
+        if(i===0||i===a.length-1) return `<span class="tag">${ln}</span>`;
+        const idx=ln.indexOf(' : '); if(idx===-1) return ln;
+        return `<span class="k">${ln.slice(0,idx+3)}</span>${ln.slice(idx+3)}`;
+      }).join('\n');
+    }
+
+    function render(){
+      const t=I18N[lang];
+      document.documentElement.lang = lang;
+      $('langBtn').textContent = lang==='fr' ? 'EN' : 'FR';
+      $('h1').textContent = t.h1; $('sub').textContent = t.sub;
+      $('copyBtn').textContent = t.copy; $('gpsBtn').textContent = t.gps;
+      $('hint').innerHTML = t.hint;
+      $('blk').innerHTML = html();
+    }
+
+    async function fetchWeather(){
+      if(!coords) return;
+      try{
+        const u=`https://api.open-meteo.com/v1/forecast?latitude=${coords.lat}&longitude=${coords.lon}&current=temperature_2m,weathercode`;
+        const r=await fetch(u); const data=await r.json();
+        if(data&&data.current){
+          const t=I18N[lang], temp=Math.round(data.current.temperature_2m), desc=t.wmo[data.current.weathercode]||'—';
+          weatherLine = `${t.L.weather} : ${temp}°C, ${desc}`;
+          render();
+        }
+      }catch(e){}
+    }
+
+    $('copyBtn').addEventListener('click', async () => {
+      const t=I18N[lang];
+      try{ await navigator.clipboard.writeText(plain()); }
+      catch(e){ const ta=document.createElement('textarea'); ta.value=plain(); document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove(); }
+      const b=$('copyBtn'); b.classList.add('ok'); b.textContent=t.copied;
+      setTimeout(()=>{ b.classList.remove('ok'); b.textContent=t.copy; }, 1600);
+    });
+
+    $('gpsBtn').addEventListener('click', () => {
+      const t=I18N[lang];
+      if(!navigator.geolocation){ $('status').textContent=t.gpsErr; return; }
+      $('status').textContent=t.gpsLoading;
+      navigator.geolocation.getCurrentPosition(
+        (pos)=>{ coords={lat:+pos.coords.latitude.toFixed(3),lon:+pos.coords.longitude.toFixed(3)}; localStorage.setItem('cfc_coords',JSON.stringify(coords)); $('status').textContent=t.gpsOk; fetchWeather(); },
+        (err)=>{ $('status').textContent = err.code===1 ? t.gpsDenied : t.gpsErr; },
+        { enableHighAccuracy:false, timeout:10000, maximumAge:600000 }
+      );
+    });
+
+    $('langBtn').addEventListener('click', () => { lang = lang==='fr'?'en':'fr'; weatherLine=null; render(); fetchWeather(); });
+
+    render();
+    if(coords) fetchWeather();
+    setInterval(()=>{ $('blk').innerHTML = html(); }, 1000);
+
+    if('serviceWorker' in navigator){ navigator.serviceWorker.register('sw.js').catch(()=>{}); }
+  })();
+  </script>
+</body>
+</html>
