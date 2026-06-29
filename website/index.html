@@ -155,6 +155,7 @@
     <a href="#" class="logo"><span class="logo-mark">🕐</span>Clock<b>ForClaude</b></a>
     <div class="nav-links">
       <a href="#features" class="nav-link" onclick="go('features');return false;">Fonctionnalités</a>
+      <a href="/app/" class="nav-link">📱 App mobile</a>
       <a href="#pricing" class="nav-link" onclick="go('pricing');return false;">Tarifs</a>
       <a href="#mcp" class="nav-link" onclick="go('mcp');return false;">MCP</a>
       <a href="#faq" class="nav-link" onclick="go('faq');return false;">FAQ</a>
@@ -350,7 +351,7 @@
   const MOIS=['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
   const pad=n=>String(n).padStart(2,'0');
   const go=id=>document.getElementById(id).scrollIntoView({behavior:'smooth'});
-  function install(){alert("L'extension arrive très bientôt sur le Chrome Web Store et Firefox Add-ons. En attendant, utilisez le bouton 🕒 Clock du simulateur ci-dessus ou le connecteur MCP !");}
+  function install(){alert("ClockForClaude est en cours de validation sur le Chrome Web Store (disponible très bientôt). En attendant :\n\n📱 l'app mobile : clockforclaude.com/app\n🕒 le bouton Clock du simulateur ci-dessus\n⚡ le connecteur MCP (section ci-dessous)");}
 
   function moment(h){if(h>=5&&h<12)return'Matin';if(h>=12&&h<14)return'Midi';if(h>=14&&h<18)return'Après-midi';if(h>=18&&h<22)return'Soirée';return'Nuit';}
   function workday(d){return(d>=1&&d<=5)?'Oui':'Non';}

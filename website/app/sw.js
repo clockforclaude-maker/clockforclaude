@@ -1,5 +1,5 @@
 // ClockForClaude PWA — minimal service worker (offline shell + installability)
-const CACHE = 'cfc-app-v1';
+const CACHE = 'cfc-app-v2';
 const ASSETS = ['./', './index.html', './manifest.webmanifest', './icon-192.png', './icon-512.png'];
 
 self.addEventListener('install', (e) => {

@@ -155,6 +155,7 @@
     <a href="#" class="logo"><span class="logo-mark">🕐</span>Clock<b>ForClaude</b></a>
     <div class="nav-links">
       <a href="#features" class="nav-link" onclick="go('features');return false;">Features</a>
+      <a href="/app/" class="nav-link">📱 Mobile app</a>
       <a href="#pricing" class="nav-link" onclick="go('pricing');return false;">Pricing</a>
       <a href="#mcp" class="nav-link" onclick="go('mcp');return false;">MCP</a>
       <a href="#faq" class="nav-link" onclick="go('faq');return false;">FAQ</a>
@@ -351,7 +352,7 @@
   const MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
   const pad=n=>String(n).padStart(2,'0');
   const go=id=>document.getElementById(id).scrollIntoView({behavior:'smooth'});
-  function install(){alert("The extension is coming very soon to the Chrome Web Store and Firefox Add-ons. In the meantime, use the 🕒 Clock button in the simulator above or the MCP connector!");}
+  function install(){alert("ClockForClaude is under review on the Chrome Web Store (available very soon). In the meantime:\n\n📱 the mobile app: clockforclaude.com/app\n🕒 the Clock button in the simulator above\n⚡ the MCP connector (section below)");}
 
   function moment(h){if(h>=5&&h<12)return'Morning';if(h>=12&&h<14)return'Midday';if(h>=14&&h<18)return'Afternoon';if(h>=18&&h<22)return'Evening';return'Night';}
   function workday(d){return(d>=1&&d<=5)?'Yes':'No';}
