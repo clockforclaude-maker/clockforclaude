@@ -1,112 +1,111 @@
 # Chrome Web Store Listing — ClockForClaude
 
-> Last Updated: 2026-06-11
+> Last updated: 2026-06-29 · Package: `clockforclaude-extension.zip` · Version 1.0.0
 
-## Store Listing
+## Store Listing — Français
 
-**Extension Name**
+**Nom**
 ClockForClaude
 
-**Short Description**
-Donnez à Claude une fenêtre sur le monde : heure locale, date, météo et heures creuses directement dans claude.ai.
+**Description courte** (max 132 caractères)
+Donnez à Claude une fenêtre sur le monde : heure locale, date, météo et fuseau horaire injectés automatiquement dans claude.ai.
 
-**Detailed Description**
-ClockForClaude est une extension légère conçue pour injecter automatiquement un contexte temporel et environnemental dans vos conversations avec Claude.
+**Description détaillée**
+ClockForClaude est une extension légère qui injecte automatiquement un contexte temporel et environnemental dans vos conversations avec Claude.
 
-Par défaut, les modèles IA n'ont pas conscience de l'heure exacte à laquelle vous leur parlez, de votre météo locale ou de votre fuseau horaire. Cela peut mener à des réponses décalées temporellemenent (souhaiter "bonne nuit" en plein après-midi ou ignorer que vous avez une météo spécifique).
+Par défaut, les modèles d'IA ne connaissent ni l'heure exacte, ni votre fuseau horaire, ni votre météo locale. Résultat : des réponses parfois décalées (« bonne nuit » en plein après-midi). ClockForClaude corrige cela.
 
-Fonctionnalités clés :
-- Horodatage précis : Injecte l'heure locale, le jour de la semaine et la saison exacte.
-- Météo locale intégrée : Ajoute la température, le vent et l'heure du coucher de soleil.
-- Indicateur d'heures creuses : Affiche si vous êtes dans le créneau horaire où les limites d'utilisation de Claude sont doublées.
-- Mode Automatique : Injecte automatiquement le contexte lors du premier message d'une nouvelle discussion.
-- Bouton Manuel : Un bouton flottant discret ajouté directement à l'interface de Claude pour insérer le contexte en un clic.
+Fonctionnalités :
+- Horodatage précis : heure locale, jour de la semaine, saison, moment de la journée.
+- Météo locale : température, conditions, vent et coucher de soleil (API gratuite Open-Meteo).
+- Jour ouvré & heures de bureau.
+- Bouton manuel « 🕒 Clock » discret directement dans l'interface de Claude.
+- Mode automatique (Pro) : le contexte s'injecte et se rafraîchit tout seul, puis se fige dès que vous écrivez.
+- GPS précis & calendrier (Pro) : ajoutez votre prochain rendez-vous via une URL iCal.
 
-Comment l'utiliser :
-1. Installez l'extension.
-2. Ouvrez le popup de l'extension pour activer la géolocalisation automatique ou définir des coordonnées manuelles.
-3. Allez sur claude.ai et commencez à discuter. L'extension s'occupe du reste !
+Confidentialité : toutes vos données (réglages, position) sont stockées localement dans votre navigateur. Rien n'est revendu. Seules vos coordonnées sont envoyées à Open-Meteo, sans aucune information personnelle.
 
-Note sur la vie privée :
-Toutes vos données (préférences, position GPS) sont stockées localement dans votre navigateur. Aucune donnée n'est revendue ou partagée avec des tiers. La position GPS n'est envoyée qu'à l'API de météo gratuite Open-Meteo sans aucune information d'identité personnelle.
+**Catégorie** : Productivité
+**Objectif unique** : Injecter automatiquement la date, l'heure locale, la météo et le fuseau horaire dans les invites du site claude.ai.
 
-**Category**
-Productivity
+## Store Listing — English
 
-**Single Purpose**
-Injecte automatiquement la date, l'heure locale, la météo et le fuseau horaire dans les invites du site claude.ai.
+**Name**
+ClockForClaude
 
-**Primary Language**
-French
+**Short description** (max 132 chars)
+Give Claude a window to the world: local time, date, weather and timezone injected automatically into claude.ai.
 
-## Graphics & Assets
+**Detailed description**
+ClockForClaude is a lightweight extension that automatically injects time and environmental context into your conversations with Claude.
 
-| Asset | Dimensions | Status | Filename |
-|-------|-----------|--------|----------|
-| Store Icon | 128×128 PNG | ⬜ Not created | Omitted in manifest (uses Chrome default) |
-| Screenshot 1 | 1280×800 or 640×400 | ⬜ Not created | |
-| Screenshot 2 | 1280×800 or 640×400 | ⬜ Not created | |
-| Small Promo Tile | 440×280 | ⬜ Not created | |
+By default, AI models don't know the exact time, your timezone, or your local weather — which leads to time-blind replies (saying "good night" in the afternoon). ClockForClaude fixes that.
 
-### Screenshot Notes
-- Capture 1 : L'interface du popup de configuration montrant les réglages, le mode d'injection et l'aperçu du bloc temporel.
-- Capture 2 : Le site claude.ai avec le bouton ClockForClaude flottant et le bloc d'horodatage inséré en début de message.
+Features:
+- Accurate timestamp: local time, day of week, season, time of day.
+- Local weather: temperature, conditions, wind and sunset (free Open-Meteo API).
+- Working day & office hours.
+- Discreet manual "🕒 Clock" button right inside Claude's composer.
+- Auto mode (Pro): context is injected and refreshes on its own, then freezes as soon as you type.
+- Precise GPS & calendar (Pro): add your next meeting via an iCal URL.
+
+Privacy: all your data (settings, location) is stored locally in your browser. Nothing is sold. Only your coordinates are sent to Open-Meteo, with no personal information.
+
+**Category**: Productivity
+**Single purpose**: Automatically inject the date, local time, weather and timezone into prompts on the claude.ai website.
+
+**Primary language**: English (the extension UI auto-localizes to FR/EN/ES/IT/DE/PT/ZH).
 
 ## Permissions Justification
 
 | Permission | Type | Justification |
 |------------|------|---------------|
-| `storage` | permissions | Permet de sauvegarder localement les réglages de l'utilisateur ainsi que le cache de la météo pour éviter des appels API superflus. |
-| `alarms` | permissions | Utilisé pour programmer des nettoyages périodiques du cache de météo afin d'éviter la saturation de l'espace de stockage. |
-| `https://api.open-meteo.com/*` | host_permissions | Nécessaire pour communiquer avec l'API Open-Meteo afin de récupérer la météo locale (température, vent, coucher de soleil) correspondant à la position géographique configurée. |
+| `storage` | permission | Save the user's settings and the weather cache locally, to avoid redundant API calls. |
+| `geolocation` | permission | Optional. Only when the user clicks "Use my location", to get precise GPS coordinates for local weather (Pro). |
+| `https://api.open-meteo.com/*` | host | Fetch local weather (temperature, conditions, wind, sunset) for the configured location. |
+| `https://geocoding-api.open-meteo.com/*` | host | Convert a city name typed by the user into coordinates for weather. |
+| `https://api.bigdatacloud.net/*`, `https://api-bdc.io/*` | host | Approximate IP-based location (city) so weather works without GPS. |
+| `https://raw.githubusercontent.com/*` | host | Fetch an updatable `selectors.json` so the extension keeps working if claude.ai changes its page structure — without forcing a new extension release. |
+| `https://*.supabase.co/*` | host | Verify the user's Pro license key against our licensing backend. |
+| `https://*/*` | **optional** host | NOT requested at install. Requested at runtime only when a Pro user adds a personal calendar, to fetch that single user-provided iCal (.ics) feed — which can live on any domain. |
 
 ## Privacy & Data Use
 
-### Data Collection
+**Does the extension collect user data?** Yes — minimal.
 
-**Does the extension collect user data?** Yes
+| Data | Collected | Sent off-device | Purpose | Sold/shared |
+|------|-----------|-----------------|---------|-------------|
+| Approx. or GPS location | Yes (local) | Yes | Coordinates sent to Open-Meteo to fetch local weather. | No |
+| Settings / license key | Yes (local only) | License key → our Supabase backend for verification only | Store preferences; unlock Pro. | No |
 
-| Data Type | Collected? | Transmitted Off-Device? | Purpose | Shared with Third Parties? |
-|-----------|-----------|------------------------|---------|---------------------------|
-| Location | Yes | Yes | Utilisé uniquement pour envoyer les coordonnées de latitude/longitude à l'API publique Open-Meteo afin de récupérer la météo locale. | No |
+Certifications: data is NOT sold; NOT used outside core functionality; NOT used for creditworthiness.
 
-### Data Use Certification
-- [x] Data is NOT sold to third parties
-- [x] Data is NOT used for purposes unrelated to the extension's core functionality
-- [x] Data is NOT used for creditworthiness or lending purposes
+**Privacy Policy URL** (use the English one for the store):
+- English: https://clockforclaude.com/en/privacy-policy-extension.html
+- French: https://clockforclaude.com/privacy-policy-extension.html
 
-## Privacy Policy
+## Graphics & Assets (TO PRODUCE — required)
 
-**Privacy Policy URL**
-https://clockforclaude.com/privacy-policy-extension
+| Asset | Dimensions | Status |
+|-------|-----------|--------|
+| Store icon | 128×128 PNG | ✅ `icons/icon-128.png` |
+| Screenshot 1 | 1280×800 (or 640×400) | ⬜ TODO — extension popup (settings + preview) |
+| Screenshot 2 | 1280×800 (or 640×400) | ⬜ TODO — claude.ai with the 🕒 Clock button + injected block |
+| Small promo tile | 440×280 | ⬜ Optional |
 
-## Distribution
+At least **one** screenshot is mandatory to publish.
 
-**Visibility**: Public
-**Regions**: All regions
-**Pricing**: Free (with optional link to Pro premium subscription on external site)
+## Distribution & Developer Info
 
-## Developer Info
-
-**Publisher Name**
-ClockForClaude Dev
-
-**Contact Email**
-contact@clockforclaude.com
-
-**Support URL / Email**
-support@clockforclaude.com
-
-**Homepage URL**
-https://clockforclaude.com
+- Visibility: Public · Regions: All · Pricing: Free (optional Pro subscription on external site)
+- Publisher: ClockForClaude · Contact & support: clockforclaude@gmail.com · Homepage: https://clockforclaude.com
 
 ## Version History
 
-| Version | Date | Changes | Status |
-|---------|------|---------|--------|
-| 1.0.0 | 2026-06-11 | Initial release with datetime, weather and off-peak injection. | Draft |
+| Version | Date | Changes |
+|---------|------|---------|
+| 1.0.0 | 2026-06 | Initial release: datetime + weather + working-day injection, manual & auto modes, GPS, iCal calendar (Pro), multilingual UI (7 languages). |
 
 ## Review Notes
-
-### Known Issues / Limitations
-- L'utilisation de la géolocalisation automatique requiert l'autorisation de l'utilisateur dans le popup de l'extension. Si elle est refusée, l'utilisateur doit configurer manuelle les coordonnées.
+- Automatic geolocation requires user consent in the popup; if denied, the user can set coordinates manually.
+- The broad optional host permission (`https://*/*`) is never granted at install — it is requested per-domain at runtime only when a Pro user voluntarily adds an iCal calendar URL.
