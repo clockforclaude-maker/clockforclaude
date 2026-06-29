@@ -1,5 +1,5 @@
-// ClockForClaude PWA — minimal service worker (offline shell + installability)
-const CACHE = 'cfc-app-v2';
+// ClockForClaude PWA — service worker (offline support + always-fresh content)
+const CACHE = 'cfc-app-v3';
 const ASSETS = ['./', './index.html', './manifest.webmanifest', './icon-192.png', './icon-512.png'];
 
 self.addEventListener('install', (e) => {
@@ -8,17 +8,30 @@ self.addEventListener('install', (e) => {
 
 self.addEventListener('activate', (e) => {
   e.waitUntil(
-    caches.keys().then((keys) => Promise.all(keys.filter((k) => k !== CACHE).map((k) => caches.delete(k))))
+    caches.keys()
+      .then((keys) => Promise.all(keys.filter((k) => k !== CACHE).map((k) => caches.delete(k))))
       .then(() => self.clients.claim())
   );
 });
 
 self.addEventListener('fetch', (e) => {
-  const url = new URL(e.request.url);
-  // Never cache the weather API — always fetch fresh
+  const req = e.request;
+  const url = new URL(req.url);
+
+  // Never cache the weather API — always fetch fresh.
   if (url.hostname.endsWith('open-meteo.com')) return;
-  // Cache-first for our own shell, network fallback
-  e.respondWith(
-    caches.match(e.request).then((cached) => cached || fetch(e.request).catch(() => cached))
-  );
+
+  // Network-first for the page itself, so a new deploy shows up immediately
+  // when online; fall back to cache only when offline.
+  if (req.mode === 'navigate' || req.destination === 'document') {
+    e.respondWith(
+      fetch(req)
+        .then((r) => { const copy = r.clone(); caches.open(CACHE).then((c) => c.put(req, copy)); return r; })
+        .catch(() => caches.match(req).then((m) => m || caches.match('./index.html')))
+    );
+    return;
+  }
+
+  // Cache-first for static assets (icons, manifest).
+  e.respondWith(caches.match(req).then((c) => c || fetch(req)));
 });
