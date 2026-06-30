@@ -24,11 +24,11 @@ async function verifyLicenseKey(key) {
 
 // Centralized Stripe Checkout Links Configuration
 const STRIPE_LINKS = {
-  EUR: "https://buy.stripe.com/14A5kw5videKeHk0fEao800", // FR, ES, IT, DE, PT
-  GBP: "https://buy.stripe.com/14A5kw5videKeHk0fEao800", // UK
-  JPY: "https://buy.stripe.com/14A5kw5videKeHk0fEao800", // JP
-  CNY: "https://buy.stripe.com/14A5kw5videKeHk0fEao800", // CN
-  USD: "https://buy.stripe.com/14A5kw5videKeHk0fEao800"  // US & Global
+  EUR: "https://buy.stripe.com/4gM7sE7Dq4Ie0Qu5zYao802", // FR, ES, IT, DE, PT
+  GBP: "https://buy.stripe.com/4gM7sE7Dq4Ie0Qu5zYao802", // UK
+  JPY: "https://buy.stripe.com/4gM7sE7Dq4Ie0Qu5zYao802", // JP
+  CNY: "https://buy.stripe.com/4gM7sE7Dq4Ie0Qu5zYao802", // CN
+  USD: "https://buy.stripe.com/4gM7sE7Dq4Ie0Qu5zYao802"  // US & Global
 };
 
 document.addEventListener('DOMContentLoaded', async () => {
