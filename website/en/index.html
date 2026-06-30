@@ -352,7 +352,7 @@
   const MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
   const pad=n=>String(n).padStart(2,'0');
   const go=id=>document.getElementById(id).scrollIntoView({behavior:'smooth'});
-  function install(){alert("ClockForClaude is under review on the Chrome Web Store (available very soon). In the meantime:\n\n📱 the mobile app: clockforclaude.com/app\n🕒 the Clock button in the simulator above\n⚡ the MCP connector (section below)");}
+  function install(){window.open('https://chromewebstore.google.com/detail/clockforclaude/hddkbfkmipfginbjlpaoimjinbonalbn','_blank');}
 
   function moment(h){if(h>=5&&h<12)return'Morning';if(h>=12&&h<14)return'Midday';if(h>=14&&h<18)return'Afternoon';if(h>=18&&h<22)return'Evening';return'Night';}
   function workday(d){return(d>=1&&d<=5)?'Yes':'No';}
